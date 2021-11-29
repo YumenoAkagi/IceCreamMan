@@ -17,7 +17,7 @@ TagManager:
   - 
   - Obstacles
   - HUD
-  - 
+  - Characters
   - 
   - 
   - 
@@ -45,6 +45,9 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1618142505
+    locked: 0
+  - name: Monsters
+    uniqueID: 112647197
     locked: 0
   - name: Player
     uniqueID: 3412316753
