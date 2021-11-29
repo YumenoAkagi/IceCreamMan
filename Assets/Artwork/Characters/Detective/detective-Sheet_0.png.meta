@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: 1084a45b5af3dca4e8b758110e8be6ea
+guid: 3c174403a6899bc419d4a71e8d6a18c0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 524235616203855169
-    second: detective-Sheet_0
+      213: -2050454748400397040
+    second: detective-Sheet_0_0
   - first:
-      213: 731833365532088810
-    second: detective-Sheet_1
+      213: 299389265694567480
+    second: detective-Sheet_0_1
+  - first:
+      213: -7757091501137070367
+    second: detective-Sheet_0_2
+  - first:
+      213: 8300185190435394716
+    second: detective-Sheet_0_3
+  - first:
+      213: 9025562549050383015
+    second: detective-Sheet_0_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +79,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,7 +91,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: detective-Sheet_0
+      name: detective-Sheet_0_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 3
-        width: 27
-        height: 66
+        x: 0
+        y: 0
+        width: 72
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +116,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1455072f385764700800000000000000
-      internalID: 524235616203855169
+      spriteID: 015d49525425b83e0800000000000000
+      internalID: -2050454748400397040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: detective-Sheet_1
+      name: detective-Sheet_0_1
       rect:
         serializedVersion: 2
-        x: 93
-        y: 3
-        width: 27
-        height: 66
+        x: 72
+        y: 0
+        width: 72
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae9915b819ef72a00800000000000000
-      internalID: 731833365532088810
+      spriteID: 83c2a4f63f4a72400800000000000000
+      internalID: 299389265694567480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detective-Sheet_0_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6f588e066495490800000000000000
+      internalID: -7757091501137070367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detective-Sheet_0_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c941cd5547e203370800000000000000
+      internalID: 8300185190435394716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detective-Sheet_0_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa9732a15d314d70800000000000000
+      internalID: 9025562549050383015
       vertices: []
       indices: 
       edges: []
