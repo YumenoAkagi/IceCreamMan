@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class EnemyMeleeAttack : MonoBehaviour
 {
-    public float thrust = 1f;
+    public float thrust = 3f;
 
-    // Update is called once per frame
-    void Update()
+    Rigidbody2D enemyRb;
+
+    private void Awake()
     {
-        
+        enemyRb = transform.GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,7 +20,7 @@ public class EnemyMeleeAttack : MonoBehaviour
             PlayerHealthStatus health = collision.transform.GetComponent<PlayerHealthStatus>();
             health.TakeDamage(20);
             Rigidbody2D playerRb = collision.transform.GetComponent<Rigidbody2D>();
-            playerRb.velocity = new Vector2(-thrust * playerRb.transform.localScale.x, playerRb.velocity.y);
+            playerRb.velocity = new Vector2(thrust * enemyRb.velocity.x, thrust * enemyRb.velocity.x);
         }
     }
 }
