@@ -13,6 +13,13 @@ public class PlayerHealthStatus : MonoBehaviour {
         healthBarSystem.UpdateHealthBar();
     }
 
+    public void Heal(float healAmount)
+    {
+        currHealth += healAmount;
+
+        healthBarSystem.UpdateHealthBar();
+    }
+
     private void Update()
     {
         // damage taken debug test code
