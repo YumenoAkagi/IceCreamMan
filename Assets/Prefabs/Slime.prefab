@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8460977581676732041}
   - component: {fileID: 8460977581676732042}
+  - component: {fileID: 3007902225733424358}
   - component: {fileID: 8460977581676732045}
   - component: {fileID: 8460977581676732043}
   - component: {fileID: 8460977581676732044}
   - component: {fileID: 8460977581676732046}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,6 +87,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3007902225733424358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8460977581676732040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9cd2299a90657419349e9debccd411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 100
 --- !u!114 &8460977581676732045
 MonoBehaviour:
   m_ObjectHideFlags: 0
