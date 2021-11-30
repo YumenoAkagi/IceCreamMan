@@ -1,22 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HotkeyMechanics : MonoBehaviour
 {
+    public Text hotkeyQty1, hotkeyQty2, hotkeyQty3;
     public Transform player;
+    public PlayerHotkeyInventory hotkeyInventory;
 
-    void Update()
+    public void UpdateItemQty()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Debug.Log("Pressed");
-            PlayerHealthStatus h = player.GetComponent<PlayerHealthStatus>();
-            if(h.currHealth < h.maxHealth)
-            {
-                // if potion is available, heal character
-                h.Heal(20);
-            }
-        }
+        hotkeyQty1.text = hotkeyInventory.hotkeyQty1.ToString();
+        hotkeyQty2.text = hotkeyInventory.hotkeyQty2.ToString();
+        hotkeyQty3.text = hotkeyInventory.hotkeyQty3.ToString();
     }
 }
