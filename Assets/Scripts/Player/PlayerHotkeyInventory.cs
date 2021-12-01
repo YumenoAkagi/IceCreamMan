@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHotkeyInventory : MonoBehaviour
 {
-    public int hotkeyQty1, hotkeyQty2, hotkeyQty3;
+    int hotkeyQty1, hotkeyQty2, hotkeyQty3;
     public HotkeyMechanics hotkeyMechanics;
     public PlayerHealthStatus healthStatus;
 
@@ -45,5 +45,44 @@ public class PlayerHotkeyInventory : MonoBehaviour
                 hotkeyMechanics.UpdateItemQty();
             }
         }
+    }
+
+    public void AddHotkeyItem1()
+    {
+        hotkeyQty1++;
+        hotkeyMechanics.UpdateItemQty();
+    }
+
+    public void AddHotkeyItem2()
+    {
+        hotkeyQty2++;
+        hotkeyMechanics.UpdateItemQty();
+    }
+
+    public void AddHotkeyItem3()
+    {
+        hotkeyQty3++;
+        hotkeyMechanics.UpdateItemQty();
+    }
+
+    public string getHotkeyQty(int hotkey)
+    {
+        string qty = "";
+        switch (hotkey)
+        {
+            case 1:
+                qty = hotkeyQty1.ToString();
+                break;
+            case 2:
+                qty = hotkeyQty2.ToString();
+                break;
+            case 3:
+                qty = hotkeyQty3.ToString();
+                break;
+            default:
+                break;
+        }
+
+        return qty;
     }
 }

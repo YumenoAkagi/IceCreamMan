@@ -11,8 +11,8 @@ public class HotkeyMechanics : MonoBehaviour
 
     public void UpdateItemQty()
     {
-        hotkeyQty1.text = hotkeyInventory.hotkeyQty1.ToString();
-        hotkeyQty2.text = hotkeyInventory.hotkeyQty2.ToString();
-        hotkeyQty3.text = hotkeyInventory.hotkeyQty3.ToString();
+        hotkeyQty1.text = hotkeyInventory.getHotkeyQty(1);
+        hotkeyQty2.text = hotkeyInventory.getHotkeyQty(2);
+        hotkeyQty3.text = hotkeyInventory.getHotkeyQty(3);
     }
 }

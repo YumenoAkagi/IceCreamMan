@@ -19,7 +19,7 @@ TagManager:
   - Obstacles
   - HUD
   - Characters
-  - 
+  - Resource
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2974099667
+    locked: 0
   - name: UI
     uniqueID: 1618142505
     locked: 0
@@ -52,4 +55,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3412316753
+    locked: 0
+  - name: Resources
+    uniqueID: 1986865273
     locked: 0
