@@ -98,4 +98,21 @@ public class SlimeAI : MonoBehaviour
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // still bug if collide with wall
+        if (collision.transform.gameObject.CompareTag("WorldWall"))
+        {
+            if (!isLeft)
+            {
+                isLeft = true;
+                finalPosRight.x = transform.position.x;
+            } else if (isLeft)
+            {
+                isLeft = false;
+                finalPosLeft.x = transform.position.x;
+            }
+        }
+    }
 }

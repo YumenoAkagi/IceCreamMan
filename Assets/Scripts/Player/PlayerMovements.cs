@@ -2,6 +2,7 @@
 
 public class PlayerMovements : MonoBehaviour {
 	private Rigidbody2D body;
+	Animator anim;
 	private bool onGround = false;
 	[SerializeField] private float speed;
 
@@ -9,7 +10,8 @@ public class PlayerMovements : MonoBehaviour {
 	public float knockbackLength;
 
 	private void Awake() {
-		body = GetComponent<Rigidbody2D> ();
+		body = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 	}
 
 	private void Update() {
@@ -23,6 +25,7 @@ public class PlayerMovements : MonoBehaviour {
 			// character left and right movement settings
 			float horizontalInput = Input.GetAxis("Horizontal");
 			body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+			anim.SetFloat("velocity", Mathf.Abs(horizontalInput));
 
 			// flip character left right
 			if (horizontalInput < -0.01f)
@@ -50,12 +53,12 @@ public class PlayerMovements : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D collision)
     {
-		if (collision.gameObject.tag == "Platform")
+		if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Chest")
 			onGround = true;
     }
 
 	private void Jump() {
-		body.velocity = new Vector2(body.velocity.x, speed);
+		body.velocity = new Vector2(body.velocity.x, speed * 1.25f);
 		onGround = false;
 	}
 }
