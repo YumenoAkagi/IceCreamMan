@@ -50,12 +50,24 @@ public class SlimeAI : MonoBehaviour
 
     void Patrol()
     {
-        if (transform.position.x > finalPosLeft.x && isLeft)
+        if(transform.position.x < finalPosLeft.x)
+        {
+            isLeft = false;
+            entity.velocity = new Vector2(moveSpeed, entity.velocity.y);
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if(transform.position.x > finalPosRight.x)
+        {
+            isLeft = true;
+            entity.velocity = new Vector2(-moveSpeed, entity.velocity.y);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (transform.position.x > finalPosLeft.x && isLeft)
         {
             entity.velocity = new Vector2(-moveSpeed, entity.velocity.y);
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-        if (!isLeft && transform.position.x < finalPosRight.x)
+        else if (!isLeft && transform.position.x < finalPosRight.x)
         { 
             entity.velocity = new Vector2(moveSpeed, entity.velocity.y);
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMeleeAttack : MonoBehaviour
 {
-    public float thrust = 3f;
+    public float knockback = 3f;
 
     Rigidbody2D enemyRb;
 
@@ -20,7 +20,18 @@ public class EnemyMeleeAttack : MonoBehaviour
             PlayerHealthStatus health = collision.transform.GetComponent<PlayerHealthStatus>();
             health.TakeDamage(20);
             Rigidbody2D playerRb = collision.transform.GetComponent<Rigidbody2D>();
-            playerRb.velocity = new Vector2(thrust * enemyRb.velocity.x, thrust * enemyRb.velocity.x);
+
+            if(transform.position.x < playerRb.position.x)
+            {
+                // enemy contact from left
+                playerRb.velocity = new Vector2(knockback, knockback);
+            } else if(transform.position.x >= playerRb.position.x){
+                // enemy contact from right
+                playerRb.velocity = new Vector2(-knockback, knockback);
+            }
+
+            PlayerMovements m = collision.transform.GetComponent<PlayerMovements>();
+            m.knockbackCount = m.knockbackLength;
         }
     }
 }

@@ -5,6 +5,9 @@ public class PlayerMovements : MonoBehaviour {
 	private bool onGround = false;
 	[SerializeField] private float speed;
 
+	public float knockbackCount;
+	public float knockbackLength;
+
 	private void Awake() {
 		body = GetComponent<Rigidbody2D> ();
 	}
@@ -15,25 +18,34 @@ public class PlayerMovements : MonoBehaviour {
 		float charScaleY = transform.localScale.y;
 		float charScaleZ = transform.localScale.z;
 
-		// character left and right movement settings
-		float horizontalInput = Input.GetAxis("Horizontal");
-		body.velocity = new Vector2 (horizontalInput * speed, body.velocity.y);
+		if(knockbackCount <= 0)
+        {
+			// character left and right movement settings
+			float horizontalInput = Input.GetAxis("Horizontal");
+			body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-        // flip character left right
-        if (horizontalInput < -0.01f)
+			// flip character left right
+			if (horizontalInput < -0.01f)
+			{
+				// flip left
+				transform.localScale = new Vector3(-charScaleX, charScaleY, charScaleZ);
+			}
+			else if (horizontalInput > 0.01f)
+			{
+				// flip right
+				transform.localScale = new Vector3(charScaleX, charScaleY, charScaleZ);
+			}
+
+			if (Input.GetKey(KeyCode.UpArrow) && onGround)
+			{
+				// character jump movement settings
+				Jump();
+			}
+		} else
         {
-			// flip left
-			transform.localScale = new Vector3(-charScaleX, charScaleY, charScaleZ);
-        } else if(horizontalInput > 0.01f)
-        {
-			// flip right
-			transform.localScale = new Vector3(charScaleX, charScaleY, charScaleZ);
+			knockbackCount -= Time.deltaTime;
         }
-
-        if (Input.GetKey (KeyCode.UpArrow) && onGround) {
-			// character jump movement settings
-			Jump();
-		}
+		
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)

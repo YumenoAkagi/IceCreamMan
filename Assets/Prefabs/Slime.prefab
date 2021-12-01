@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8460977581676732043}
   - component: {fileID: 8460977581676732044}
   - component: {fileID: 8460977581676732046}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 112647197
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 8832003938633231134, guid: 170bc390c286d654e897af63aca0f3f0,
     type: 3}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9cd2299a90657419349e9debccd411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 100
+  knockback: 5
 --- !u!114 &8460977581676732045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010432243, y: -0.11828232}
+  m_Offset: {x: -0.029541016, y: -0.09328616}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -194,5 +194,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.90958714, y: 0.76343536}
+  m_Size: {x: 1.0494928, y: 0.8134277}
   m_EdgeRadius: 0
