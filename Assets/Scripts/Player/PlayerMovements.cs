@@ -58,7 +58,7 @@ public class PlayerMovements : MonoBehaviour {
     }
 
 	private void Jump() {
-		body.velocity = new Vector2(body.velocity.x, speed * 1.25f);
+		body.velocity = new Vector2(body.velocity.x, speed * 1.5f);
 		onGround = false;
 	}
 }
