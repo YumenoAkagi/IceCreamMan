@@ -9,6 +9,11 @@ public class PlayerHealthStatus : MonoBehaviour {
         // reduce player health
         currHealth -= dmgTaken;
 
+        if(currHealth <= 0f)
+        {
+            // trigger game over scene
+        }
+
         // update healthbar UI
         healthBarSystem.UpdateHealthBar();
     }
@@ -16,6 +21,10 @@ public class PlayerHealthStatus : MonoBehaviour {
     public void Heal(float healAmount)
     {
         currHealth += healAmount;
+        if(currHealth > maxHealth)
+        {
+            currHealth = maxHealth;
+        }
 
         healthBarSystem.UpdateHealthBar();
     }
