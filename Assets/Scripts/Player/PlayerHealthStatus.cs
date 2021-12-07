@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthStatus : MonoBehaviour {
     public float currHealth, maxHealth;
@@ -12,6 +13,7 @@ public class PlayerHealthStatus : MonoBehaviour {
         if(currHealth <= 0f)
         {
             // trigger game over scene
+            SceneManager.LoadScene("GameOverScene");
         }
 
         // update healthbar UI
