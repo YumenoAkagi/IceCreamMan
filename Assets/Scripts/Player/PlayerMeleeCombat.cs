@@ -6,10 +6,14 @@ using UnityEngine;
 public class PlayerMeleeCombat : MonoBehaviour
 {
     Animator animator;
+
     public Transform attPoint;
     public float attRange = 0.7f;
     public float attDmg = 20f;
     public float knockback = 3f;
+    public float attRate = 2f;
+    float nextAttTime = 0;
+
     public LayerMask enemyLayer;
 
     private void Awake()
@@ -19,10 +23,15 @@ public class PlayerMeleeCombat : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if(Time.time >= nextAttTime)
         {
-            MeleeAttack();
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                MeleeAttack();
+                nextAttTime = Time.time + 1f / attRate;
+            }
         }
+       
     }
 
     private void MeleeAttack()
