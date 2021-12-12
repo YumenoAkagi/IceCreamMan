@@ -16,11 +16,11 @@ public class PlayerMeleeCombat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            EnemyMeleeAttack();
+            MeleeAttack();
         }
     }
 
-    private void EnemyMeleeAttack()
+    private void MeleeAttack()
     {
         animator.SetTrigger("melee");
     }
