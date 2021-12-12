@@ -7,6 +7,11 @@ public class EnemyHealthStatus : MonoBehaviour
     public int maxHealth;
     int currHealth;
 
+    private void Awake()
+    {
+        currHealth = maxHealth;
+    }
+
     public void TakeDamage(int damage)
     {
         currHealth -= damage;

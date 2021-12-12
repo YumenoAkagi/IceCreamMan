@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMeleeAttack : MonoBehaviour
 {
     public float knockback = 3f;
+    public float damage = 20f;
 
     Rigidbody2D enemyRb;
 
@@ -18,7 +19,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         if (collision.transform.gameObject.CompareTag("Player"))
         {
             PlayerHealthStatus health = collision.transform.GetComponent<PlayerHealthStatus>();
-            health.TakeDamage(20);
+            health.TakeDamage(damage);
             Rigidbody2D playerRb = collision.transform.GetComponent<Rigidbody2D>();
 
             if(transform.position.x < playerRb.position.x)

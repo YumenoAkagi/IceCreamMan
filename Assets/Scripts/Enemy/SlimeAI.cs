@@ -10,6 +10,9 @@ public class SlimeAI : MonoBehaviour
     public float detectionRange;
     public float patrolRange;
 
+    public float knockbackCount;
+    public float knockbackLength;
+
     Rigidbody2D entity;
     bool isLeft;
 
@@ -38,13 +41,21 @@ public class SlimeAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Mathf.Abs(target.position.x - entity.position.x) <= detectionRange)
+        if(knockbackCount <= 0)
         {
-             ChasePlayer();
-        } else
+            if (Mathf.Abs(target.position.x - entity.position.x) <= detectionRange)
+            {
+                ChasePlayer();
+            }
+            else
+            {
+                // patrolling
+                Patrol();
+            }
+        }
+        else
         {
-            // patrolling
-            Patrol();
+            knockbackCount -= Time.deltaTime;
         }
     }
 

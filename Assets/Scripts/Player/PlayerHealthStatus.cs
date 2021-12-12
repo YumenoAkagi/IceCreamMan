@@ -35,9 +35,9 @@ public class PlayerHealthStatus : MonoBehaviour {
     {
         // damage taken debug test code
         // comment if not used
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(40);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    TakeDamage(40);
+        //}
     }
 }

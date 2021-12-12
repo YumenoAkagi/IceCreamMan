@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 5
+  damage: 20
 --- !u!114 &8460977581676732045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +118,8 @@ MonoBehaviour:
   moveSpeed: 2
   detectionRange: 3
   patrolRange: 2
+  knockbackCount: 0
+  knockbackLength: 0.8
 --- !u!114 &2029164569615232163
 MonoBehaviour:
   m_ObjectHideFlags: 0
