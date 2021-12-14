@@ -21,6 +21,7 @@ public class SlimeAI : MonoBehaviour
     Vector2 finalPosLeft;
     Vector2 finalPosRight;
 
+    public AudioSource slimeWalkSFX;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class SlimeAI : MonoBehaviour
     {
         if(knockbackCount <= 0)
         {
+            WalkSFX(true);
             if (Mathf.Abs(target.position.x - entity.position.x) <= detectionRange)
             {
                 ChasePlayer();
@@ -51,10 +53,11 @@ public class SlimeAI : MonoBehaviour
             {
                 // patrolling
                 Patrol();
-            }
+            } 
         }
         else
         {
+            WalkSFX(false);
             knockbackCount -= Time.deltaTime;
         }
     }
@@ -107,6 +110,23 @@ public class SlimeAI : MonoBehaviour
         {
             entity.velocity = new Vector2(moveSpeed, entity.velocity.y);
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+    }
+
+    private void WalkSFX(bool isWalk)
+    {
+        if (slimeWalkSFX == null)
+        {
+            return;
+        }   
+
+        if (isWalk && !slimeWalkSFX.isPlaying)
+        {
+            slimeWalkSFX.Play();
+        }
+        else if (!isWalk && slimeWalkSFX.isPlaying)
+        {
+            slimeWalkSFX.Stop();
         }
     }
 
