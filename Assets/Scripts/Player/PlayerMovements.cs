@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerMovements : MonoBehaviour {
 	private Rigidbody2D body;
@@ -8,6 +9,8 @@ public class PlayerMovements : MonoBehaviour {
 
 	public float knockbackCount;
 	public float knockbackLength;
+
+	private AudioSource walkSFX, jumpSFX;
 
 	private void Awake() {
 		body = GetComponent<Rigidbody2D>();
@@ -26,6 +29,12 @@ public class PlayerMovements : MonoBehaviour {
 			float horizontalInput = Input.GetAxis("Horizontal");
 			body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 			anim.SetFloat("velocity", Mathf.Abs(horizontalInput));
+
+			if (horizontalInput < -0.01f || horizontalInput > 0.01f)
+				WalkSFX(true);
+			else
+				WalkSFX(false);
+			
 
 			// flip character left right
 			if (horizontalInput < -0.01f)
@@ -51,6 +60,38 @@ public class PlayerMovements : MonoBehaviour {
 		
 	}
 
+    private void WalkSFX(bool isWalking)
+    {
+		if(walkSFX == null)
+        {
+			var audio = Array.Find(FindObjectOfType<AudioManager>().SFXAudios, x => x.name == "Player - Walk");
+			if (audio == null)
+				return;
+
+			walkSFX = audio;
+		}
+
+		if (isWalking && !walkSFX.isPlaying)
+			walkSFX.Play();
+		else if(!isWalking && walkSFX.isPlaying)
+			walkSFX.Stop();
+    }
+
+	private void JumpSFX()
+	{
+		if (jumpSFX == null)
+		{
+			var audio = Array.Find(FindObjectOfType<AudioManager>().SFXAudios, x => x.name == "Player - Jump");
+			if (audio == null)
+				return;
+
+			jumpSFX = audio;
+		}
+
+		if (!jumpSFX.isPlaying)
+			jumpSFX.Play();
+	}
+
 	private void OnCollisionEnter2D(Collision2D collision)
     {
 		if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Chest")
@@ -60,5 +101,6 @@ public class PlayerMovements : MonoBehaviour {
 	private void Jump() {
 		body.velocity = new Vector2(body.velocity.x, speed * 1.5f);
 		onGround = false;
+		JumpSFX();
 	}
 }

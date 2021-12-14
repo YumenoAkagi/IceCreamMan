@@ -16,6 +16,8 @@ public class PlayerMeleeCombat : MonoBehaviour
 
     public LayerMask enemyLayer;
 
+    private AudioSource meleeSFX;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -37,6 +39,7 @@ public class PlayerMeleeCombat : MonoBehaviour
     private void MeleeAttack()
     {
         animator.SetTrigger("melee");
+        PlayMeleeSFX();
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attPoint.position, attRange, enemyLayer);
 
@@ -67,6 +70,21 @@ public class PlayerMeleeCombat : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void PlayMeleeSFX()
+    {
+        if (meleeSFX == null)
+        {
+            var audio = Array.Find(FindObjectOfType<AudioManager>().SFXAudios, x => x.name == "Player - Melee");
+
+            if (audio == null)
+                return;
+
+            meleeSFX = audio;
+        }
+
+        meleeSFX.Play();
     }
 
     private void OnDrawGizmosSelected()
