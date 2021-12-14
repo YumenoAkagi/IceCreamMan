@@ -42,7 +42,6 @@ public class PlayerMeleeCombat : MonoBehaviour
 
         foreach(Collider2D e in enemies)
         {
-            Debug.Log("Enemy Hit!");
             EnemyHealthStatus enemyHealth = e.GetComponent<EnemyHealthStatus>();
             enemyHealth.TakeDamage((int)attDmg);
 
