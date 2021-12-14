@@ -31,6 +31,11 @@ public class PlayerHealthStatus : MonoBehaviour {
         healthBarSystem.UpdateHealthBar();
     }
 
+    public void InstantDeath()
+    {
+        TakeDamage(maxHealth);
+    }
+
     private void Update()
     {
         // damage taken debug test code
