@@ -110,8 +110,17 @@ public class GrandpaAIControls : MonoBehaviour
 
     IEnumerator Dash()
     {
+        var chance = UnityEngine.Random.Range(0f, 1f);
         body.velocity = new Vector2(body.velocity.x, 0f);
-        body.AddForce(new Vector2(velocity * dashDist, 0f), ForceMode2D.Impulse);
+        if(chance < 0.7f)
+        {
+            body.AddForce(new Vector2(velocity * dashDist, 0f), ForceMode2D.Impulse);
+        } 
+        else
+        {
+            body.AddForce(new Vector2(-velocity * dashDist, 0f), ForceMode2D.Impulse);
+        }
+        
         float gravity = body.gravityScale;
         float drag = body.angularDrag;
         body.gravityScale = 0;
