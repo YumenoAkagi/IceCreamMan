@@ -4902,12 +4902,12 @@ PrefabInstance:
     - target: {fileID: 5277987038433235156, guid: 57aae8cab7136674f94a2637af7f6f53,
         type: 3}
       propertyPath: damage
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5277987038433235156, guid: 57aae8cab7136674f94a2637af7f6f53,
         type: 3}
       propertyPath: knockback
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8742719819192920589, guid: 57aae8cab7136674f94a2637af7f6f53,
         type: 3}
@@ -4923,6 +4923,11 @@ PrefabInstance:
         type: 3}
       propertyPath: dashRate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742719819192920589, guid: 57aae8cab7136674f94a2637af7f6f53,
+        type: 3}
+      propertyPath: knockbackLength
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8742719819192920624, guid: 57aae8cab7136674f94a2637af7f6f53,
         type: 3}
