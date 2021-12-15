@@ -8,11 +8,18 @@ public class GrandpaAIControls : MonoBehaviour
     private static readonly string VELOCITY = "velocity";
     public Rigidbody2D target;
     public float detectionRange;
+    public float attRangeBeforeDash;
     public float movementSpeed = 2f;
 
     Animator animator;
     Rigidbody2D body;
     float velocity;
+    float nextDashTime;
+    public float dashRate = 1f;
+    public float dashDist = 50f;
+
+    public float knockbackCount;
+    public float knockbackLength;
 
     private void Awake()
     {
@@ -23,13 +30,27 @@ public class GrandpaAIControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, detectionRange);
-        if(Array.Exists(cols, c => c.transform.CompareTag(target.tag))){
-            ChasePlayer();
-        } else
+        if(knockbackCount <= 0)
         {
-            Idle();
+            Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, detectionRange);
+            Collider2D[] attCols = Physics2D.OverlapCircleAll(transform.position, attRangeBeforeDash);
+            if (Array.Exists(cols, c => c.transform.CompareTag(target.tag)))
+            {
+                if (!Array.Exists(attCols, ac => ac.transform.CompareTag(target.tag)))
+                    ChasePlayer();
+                else
+                    DashMove();
+            }
+            else
+            {
+                Idle();
+            }
         }
+        else
+        {
+            knockbackCount -= Time.deltaTime;
+        }
+
     }
 
     private void Idle()
@@ -62,8 +83,47 @@ public class GrandpaAIControls : MonoBehaviour
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
+    private void DashMove()
+    {
+        if (Time.time >= nextDashTime)
+        {
+            if (target.position.x < transform.position.x && velocity > 0.01f)
+            {
+                // player is on left
+                Flip();
+                velocity *= -1;
+            }
+            else if (target.position.x > transform.position.x && velocity < -0.01f)
+            {
+                // player is on right
+                Flip();
+                velocity *= -1;
+            }
+            StartCoroutine(Dash());
+            nextDashTime = Time.time + 1f / dashRate;
+        } 
+        else
+        {
+            Idle();
+        }
+    }
+
+    IEnumerator Dash()
+    {
+        body.velocity = new Vector2(body.velocity.x, 0f);
+        body.AddForce(new Vector2(velocity * dashDist, 0f), ForceMode2D.Impulse);
+        float gravity = body.gravityScale;
+        float drag = body.angularDrag;
+        body.gravityScale = 0;
+        body.angularDrag = 0;
+        yield return new WaitForSeconds(1f / dashRate);
+        body.gravityScale = gravity;
+        body.angularDrag = drag;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.DrawWireSphere(transform.position, attRangeBeforeDash);
     }
 }

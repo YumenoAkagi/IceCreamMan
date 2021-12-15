@@ -69,6 +69,27 @@ public class PlayerMeleeCombat : MonoBehaviour
                     ai.knockbackCount = ai.knockbackLength;
                 }
             }
+            if (e.transform.name == "Grandpa")
+            {
+                Rigidbody2D eRb = e.transform.GetComponent<Rigidbody2D>();
+                Debug.Log(eRb);
+                if (eRb != null)
+                {
+                    if (transform.position.x >= e.transform.position.x)
+                    {
+                        // enemy contact from left
+                        eRb.velocity = new Vector2(-knockback, 0f);
+                    }
+                    else if (transform.position.x < e.transform.position.x)
+                    {
+                        // enemy contact from right
+                        eRb.velocity = new Vector2(knockback, 0f);
+                    }
+
+                    GrandpaAIControls ai = e.GetComponent<GrandpaAIControls>();
+                    ai.knockbackCount = ai.knockbackLength;
+                }
+            }
         }
     }
 
@@ -76,6 +97,9 @@ public class PlayerMeleeCombat : MonoBehaviour
     {
         if (meleeSFX == null)
         {
+            if (FindObjectOfType<AudioManager>() == null)
+                return;
+
             var audio = Array.Find(FindObjectOfType<AudioManager>().SFXAudios, x => x.name == "Player - Melee");
 
             if (audio == null)

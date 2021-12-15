@@ -64,6 +64,9 @@ public class PlayerMovements : MonoBehaviour {
     {
 		if(walkSFX == null)
         {
+			if (FindObjectOfType<AudioManager>() == null)
+				return;
+
 			var audio = Array.Find(FindObjectOfType<AudioManager>().SFXAudios, x => x.name == "Player - Walk");
 			if (audio == null)
 				return;
@@ -81,6 +84,9 @@ public class PlayerMovements : MonoBehaviour {
 	{
 		if (jumpSFX == null)
 		{
+			if (FindObjectOfType<AudioManager>() == null)
+				return;
+
 			var audio = Array.Find(FindObjectOfType<AudioManager>().SFXAudios, x => x.name == "Player - Jump");
 			if (audio == null)
 				return;
