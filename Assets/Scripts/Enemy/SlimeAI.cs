@@ -25,6 +25,13 @@ public class SlimeAI : MonoBehaviour
 
     private void Awake()
     {
+        if(target == null)
+        {
+            var p = GameObject.FindGameObjectWithTag("Player");
+            Debug.Log(p);
+            if (p != null)
+                target = p.transform;
+        }
         entity = GetComponent<Rigidbody2D>();
         initialPos = entity.position;
         SetFinalPatrolPosition();
