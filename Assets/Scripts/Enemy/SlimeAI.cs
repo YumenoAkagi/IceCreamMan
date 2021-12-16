@@ -28,7 +28,6 @@ public class SlimeAI : MonoBehaviour
         if(target == null)
         {
             var p = GameObject.FindGameObjectWithTag("Player");
-            Debug.Log(p);
             if (p != null)
                 target = p.transform;
         }
