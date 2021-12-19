@@ -5,5 +5,6 @@ using UnityEngine;
 public class Dialogue : MonoBehaviour
 {
     public string Name;
+    [TextArea]
     public string[] Dialogues;
 }

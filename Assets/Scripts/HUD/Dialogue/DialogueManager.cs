@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     private Queue<string> Scripts = new Queue<string>();
-    public Text dialogueTextField;
+    public Text dialogueTextField, nameTextField;
     private bool isSceneDialogue = false;
+    public GameObject DialoguePanel, nextText;
 
     private void Update()
     {
@@ -20,6 +21,19 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(bool isSceneDialogue, Dialogue dialogue)
     {
+        this.isSceneDialogue = isSceneDialogue;
+        // if not scene dialogue, open dialogue panel
+        if(!DialoguePanel.activeInHierarchy)
+            DialoguePanel.SetActive(true);
+
+        if(dialogue.Name != null || dialogue.Name != "")
+        {
+            nameTextField.text = dialogue.Name;
+        } else
+        {
+            nameTextField.text = "";
+        }
+
         foreach(string d in dialogue.Dialogues)
         {
             Scripts.Enqueue(d);
@@ -31,7 +45,8 @@ public class DialogueManager : MonoBehaviour
 
     public void NextDialogue()
     {
-        if(Scripts.Count <= 0)
+        nextText.SetActive(false);
+        if (Scripts.Count <= 0)
         {
             StopDialogue();
             return;
@@ -45,10 +60,18 @@ public class DialogueManager : MonoBehaviour
     public void StopDialogue()
     {
         if (isSceneDialogue)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // skip to next scene
+        {
+            if(FindObjectOfType<MainMenu>() != null)
+                FindObjectOfType<MainMenu>().LoadNextLevel();
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // skip to next scene
+        }
         else
         {
             // close dialogue panel
+            DialoguePanel.SetActive(false);
+            // set timescale back to normal
+            Time.timeScale = 1f;
         }
     }
 
@@ -61,5 +84,7 @@ public class DialogueManager : MonoBehaviour
             dialogueTextField.text += letter;
             yield return null;
         }
+
+        nextText.SetActive(true);
     }
 }
