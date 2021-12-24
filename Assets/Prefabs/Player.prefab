@@ -301,6 +301,7 @@ MonoBehaviour:
   attDmg: 20
   knockback: 3
   attRate: 2
+  canAttack: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0

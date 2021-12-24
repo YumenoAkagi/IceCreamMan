@@ -13,6 +13,7 @@ public class PlayerMeleeCombat : MonoBehaviour
     public float knockback = 3f;
     public float attRate = 2f;
     float nextAttTime = 0;
+    public bool canAttack = true;
 
     public LayerMask enemyLayer;
 
@@ -27,7 +28,7 @@ public class PlayerMeleeCombat : MonoBehaviour
     {
         if(Time.time >= nextAttTime)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z) && canAttack)
             {
                 MeleeAttack();
                 nextAttTime = Time.time + 1f / attRate;
