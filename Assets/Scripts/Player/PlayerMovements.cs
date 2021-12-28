@@ -12,7 +12,20 @@ public class PlayerMovements : MonoBehaviour {
 
 	private AudioSource walkSFX, jumpSFX;
 
+	public static GameObject instance;
+
 	private void Awake() {
+		DontDestroyOnLoad(this);
+
+		if(instance == null)
+        {
+			instance = gameObject;
+        } else
+        {
+			Destroy(gameObject);
+			return;
+        }
+
 		body = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 	}

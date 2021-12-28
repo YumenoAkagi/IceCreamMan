@@ -7,6 +7,14 @@ public class CameraFollow : MonoBehaviour {
     [Range(1, 10)]
     public float smoothFactor;
 
+    private void Awake()
+    {
+        if(target == null)
+        {
+            target = FindObjectOfType<PlayerMovements>().transform;
+        }
+    }
+
     private void FixedUpdate()
     {
         FollowCharacter();

@@ -12,6 +12,12 @@ public class PlayerHealthStatus : MonoBehaviour {
 
         if(currHealth <= 0f)
         {
+            var objects = GameObject.FindObjectsOfType<GameObject>();
+            foreach(var o in objects)
+            {
+                Destroy(o.gameObject);
+            }
+
             // trigger game over scene
             SceneManager.LoadScene("GameOverScene");
         }
