@@ -10,6 +10,7 @@ public class Chest : MonoBehaviour
 
     public float MedKitDropChance = 20f;
     public GameObject medKitPrefab;
+    public GameObject clue;
 
     private void Awake()
     {
