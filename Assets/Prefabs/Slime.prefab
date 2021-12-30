@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 5
-  damage: 20
+  damage: 10
 --- !u!114 &8460977581676732045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67aaf189fe5f724489c5f1b0b2acdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
 --- !u!95 &8460977581676732043
 Animator:
   serializedVersion: 3

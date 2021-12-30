@@ -26,6 +26,11 @@ public class GrandpaAIControls : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         velocity = -movementSpeed;
         animator = GetComponent<Animator>();
+
+        if(target == null)
+        {
+            target = FindObjectOfType<PlayerMovements>().GetComponent<Rigidbody2D>();
+        }
     }
 
     private void FixedUpdate()

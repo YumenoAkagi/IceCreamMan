@@ -19,6 +19,14 @@ public class PasswordCheck : MonoBehaviour
 
     AudioSource doorOpenSFX, doorCloseSFX;
 
+    private void Awake()
+    {
+        if(meleeCombat == null)
+        {
+            meleeCombat = FindObjectOfType<PlayerMeleeCombat>();
+        }
+    }
+
     public void CheckPassword()
     {
         if(UserInput.text == DoorPassword)
@@ -44,7 +52,8 @@ public class PasswordCheck : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         CorrectPanel.SetActive(false);
         meleeCombat.canAttack = true;
-        Destroy(Door);
+
+        Door.SetActive(false);
     }
 
     IEnumerator Incorrect()
