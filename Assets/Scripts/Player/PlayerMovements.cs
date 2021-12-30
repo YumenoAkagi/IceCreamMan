@@ -14,6 +14,8 @@ public class PlayerMovements : MonoBehaviour {
 
 	public static GameObject instance;
 
+	bool facingRight = true;
+
 	private void Awake() {
 		DontDestroyOnLoad(this);
 
@@ -52,13 +54,22 @@ public class PlayerMovements : MonoBehaviour {
 			// flip character left right
 			if (horizontalInput < -0.01f)
 			{
-				// flip left
-				transform.localScale = new Vector3(-charScaleX, charScaleY, charScaleZ);
+				if(facingRight)
+                {
+					// flip left
+					transform.Rotate(0f, 180f, 0f);
+					facingRight = false;
+				}
 			}
 			else if (horizontalInput > 0.01f)
 			{
-				// flip right
-				transform.localScale = new Vector3(charScaleX, charScaleY, charScaleZ);
+				if(!facingRight)
+                {
+					// flip right
+					transform.Rotate(0f, 180f, 0f);
+					facingRight = true;
+				}
+				
 			}
 
 			if (Input.GetKey(KeyCode.UpArrow) && onGround)
