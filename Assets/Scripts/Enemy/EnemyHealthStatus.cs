@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealthStatus : MonoBehaviour
 {
+    public AudioSource hitSFX;
     public int maxHealth;
     int currHealth;
 
@@ -15,6 +16,7 @@ public class EnemyHealthStatus : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currHealth -= damage;
+        hitSFX.Play();
 
         if(currHealth <= 0)
         {
