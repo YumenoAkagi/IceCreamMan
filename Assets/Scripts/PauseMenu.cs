@@ -40,6 +40,13 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         GamePaused = false;
+
+        var objects = GameObject.FindObjectsOfType<GameObject>();
+        foreach (var o in objects)
+        {
+            Destroy(o.gameObject);
+        }
+
         SceneManager.LoadScene(0);
     }
 

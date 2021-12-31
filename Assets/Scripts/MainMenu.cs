@@ -4,11 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private static string NEW_GAME = "NewGame";
     public Animator transition;
     public float transitionTime = 1f;
 
     public void StartGame()
     {
+        PlayerPrefs.SetInt(NEW_GAME, 1);
         LoadNextLevel();
     }
 

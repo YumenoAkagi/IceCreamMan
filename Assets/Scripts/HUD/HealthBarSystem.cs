@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 
 public class HealthBarSystem : MonoBehaviour {
+    private static string NEW_GAME = "NewGame";
 
     public static GameObject instance;
 
@@ -10,6 +11,9 @@ public class HealthBarSystem : MonoBehaviour {
 
     private void Awake()
     {
+        if (PlayerPrefs.GetInt(NEW_GAME) == 1)
+            instance = null;
+
         DontDestroyOnLoad(this);
 
         if(instance == null)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class AudioManager : MonoBehaviour
     private static readonly string SFXVolumeKey = "SFXVolume";
 
     public AudioSource BGMAudio;
-    public AudioSource[] SFXAudios;
 
     float masterVol, bgmVol, sfxVol;
 
@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
         if(BGMAudio != null)
             BGMAudio.volume = masterVol * bgmVol;
 
+        var SFXAudios = Array.FindAll(FindObjectsOfType<AudioSource>(), x => !(x.name.Contains("BGM")));
         // sfx audios update volume
         foreach(AudioSource s in SFXAudios)
         {
@@ -45,6 +46,7 @@ public class AudioManager : MonoBehaviour
             BGMAudio.volume = masterVol * bgmVol;
 
         // sfx audios update volume
+        var SFXAudios = Array.FindAll(FindObjectsOfType<AudioSource>(), x => !(x.name.Contains("BGM")));
         foreach (AudioSource s in SFXAudios)
         {
             // update volume

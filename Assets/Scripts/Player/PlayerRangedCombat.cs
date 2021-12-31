@@ -7,34 +7,42 @@ public class PlayerRangedCombat : MonoBehaviour
 {
     public Transform firingPoint;
     public GameObject bulletPrefab;
+    public float ReloadTime = 2f;
 
-    AudioSource gunshotSFX;
+    public AudioSource gunshotSFX, reloadSFX;
+
+    int bulletMag = 5;
+    bool canShoot = true;
+    bool IsReloading = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if(bulletMag <= 0 && canShoot)
+        {
+            canShoot = false;
+        }
+
+        if (Input.GetButtonDown("Fire2") && canShoot)
         {
             Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-            PlayGunShotSFX();
+            bulletMag--;
+            gunshotSFX.Play();
+        } else if(Input.GetButtonDown("Reload") || Input.GetButtonDown("Fire2") && !IsReloading)
+        {
+            // force reload
+            StartCoroutine(Reload());
         }
     }
 
-    void PlayGunShotSFX()
+    IEnumerator Reload()
     {
-        if(gunshotSFX == null)
-        {
-            if (FindObjectOfType<AudioManager>() == null)
-                return;
-
-            var audio = Array.Find(FindObjectOfType<AudioManager>().SFXAudios, x => x.name == "Player - Ranged");
-
-            if (audio == null)
-                return;
-
-            gunshotSFX = audio;
-        }
-
-        gunshotSFX.Play();
+        IsReloading = true;
+        reloadSFX.Play();
+        canShoot = false;
+        yield return new WaitForSeconds(ReloadTime);
+        IsReloading = false;
+        bulletMag = 5; // hardcoded for testing
+        canShoot = true;
     }
 }

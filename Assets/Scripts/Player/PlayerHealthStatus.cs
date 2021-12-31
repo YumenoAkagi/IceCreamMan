@@ -13,7 +13,7 @@ public class PlayerHealthStatus : MonoBehaviour {
         if(currHealth <= 0f)
         {
             var objects = GameObject.FindObjectsOfType<GameObject>();
-            foreach(var o in objects)
+            foreach (var o in objects)
             {
                 Destroy(o.gameObject);
             }

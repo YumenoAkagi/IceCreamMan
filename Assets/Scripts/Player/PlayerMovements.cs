@@ -2,6 +2,8 @@
 using UnityEngine;
 
 public class PlayerMovements : MonoBehaviour {
+	private static string NEW_GAME = "NewGame";
+
 	private Rigidbody2D body;
 	Animator anim;
 	private bool onGround = false;
@@ -10,13 +12,16 @@ public class PlayerMovements : MonoBehaviour {
 	public float knockbackCount;
 	public float knockbackLength;
 
-	private AudioSource walkSFX, jumpSFX;
+	public AudioSource walkSFX, jumpSFX;
 
 	public static GameObject instance;
 
 	bool facingRight = true;
 
 	private void Awake() {
+		if (PlayerPrefs.GetInt(NEW_GAME) == 1)
+			instance = null;
+
 		DontDestroyOnLoad(this);
 
 		if(instance == null)
@@ -46,13 +51,13 @@ public class PlayerMovements : MonoBehaviour {
 			anim.SetFloat("velocity", Mathf.Abs(horizontalInput));
 
 			if (horizontalInput < -0.01f || horizontalInput > 0.01f)
-				WalkSFX(true);
+				walkSFX.Play();
 			else
-				WalkSFX(false);
-			
+				walkSFX.Stop();
 
-			// flip character left right
-			if (horizontalInput < -0.01f)
+
+            // flip character left right
+            if (horizontalInput < -0.01f)
 			{
 				if(facingRight)
                 {
@@ -84,44 +89,6 @@ public class PlayerMovements : MonoBehaviour {
 		
 	}
 
-    private void WalkSFX(bool isWalking)
-    {
-		if(walkSFX == null)
-        {
-			if (FindObjectOfType<AudioManager>() == null)
-				return;
-
-			var audio = Array.Find(FindObjectOfType<AudioManager>().SFXAudios, x => x.name == "Player - Walk");
-			if (audio == null)
-				return;
-
-			walkSFX = audio;
-		}
-
-		if (isWalking && !walkSFX.isPlaying)
-			walkSFX.Play();
-		else if(!isWalking && walkSFX.isPlaying)
-			walkSFX.Stop();
-    }
-
-	private void JumpSFX()
-	{
-		if (jumpSFX == null)
-		{
-			if (FindObjectOfType<AudioManager>() == null)
-				return;
-
-			var audio = Array.Find(FindObjectOfType<AudioManager>().SFXAudios, x => x.name == "Player - Jump");
-			if (audio == null)
-				return;
-
-			jumpSFX = audio;
-		}
-
-		if (!jumpSFX.isPlaying)
-			jumpSFX.Play();
-	}
-
 	private void OnCollisionEnter2D(Collision2D collision)
     {
 		if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Chest")
@@ -131,6 +98,6 @@ public class PlayerMovements : MonoBehaviour {
 	private void Jump() {
 		body.velocity = new Vector2(body.velocity.x, speed * 1.5f);
 		onGround = false;
-		JumpSFX();
+		jumpSFX.Play();
 	}
 }
