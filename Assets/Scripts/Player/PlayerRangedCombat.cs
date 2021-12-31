@@ -7,15 +7,23 @@ public class PlayerRangedCombat : MonoBehaviour
 {
     public Transform firingPoint;
     public GameObject bulletPrefab;
-    public float ReloadTime = 2f;
+    public float ReloadTime = 1f;
+    public AmmoSystem ammoSystem;
 
     public AudioSource gunshotSFX, reloadSFX;
 
     int bulletMag = 5;
+    public int magCapacity = 5;
+    int totalAmmo = 20;
     bool canShoot = true;
     bool IsReloading = false;
 
-    // Update is called once per frame
+
+    private void Awake()
+    {
+        ammoSystem.UpdateAmmoUI();
+    }
+
     void Update()
     {
         if(bulletMag <= 0 && canShoot)
@@ -33,6 +41,8 @@ public class PlayerRangedCombat : MonoBehaviour
             // force reload
             StartCoroutine(Reload());
         }
+
+        ammoSystem.UpdateAmmoUI();
     }
 
     IEnumerator Reload()
@@ -40,9 +50,38 @@ public class PlayerRangedCombat : MonoBehaviour
         IsReloading = true;
         reloadSFX.Play();
         canShoot = false;
+
         yield return new WaitForSeconds(ReloadTime);
+
+        int totalBulletToRefill = magCapacity - bulletMag;
+
+        if (totalAmmo <= totalBulletToRefill)
+        {
+            bulletMag += totalAmmo;
+            totalAmmo = 0;
+        }
+        else
+        {
+            bulletMag += totalBulletToRefill;
+            totalAmmo -= totalBulletToRefill;
+        }
+
         IsReloading = false;
-        bulletMag = 5; // hardcoded for testing
         canShoot = true;
+    }
+
+    public void AddTotalAmmo(int ammo)
+    {
+        totalAmmo += ammo;
+    }
+
+    public int GetAmmoLeft()
+    {
+        return totalAmmo;
+    }
+
+    public int GetMagAmmo()
+    {
+        return bulletMag;
     }
 }
