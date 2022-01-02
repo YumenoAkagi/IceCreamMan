@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    // Update is called once per frame
-    void Update()
+    public void ReturnToMainMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SceneManager.LoadScene(0);
-        }
+        SceneManager.LoadScene(0);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void Retry()
+    {
+
     }
 }
