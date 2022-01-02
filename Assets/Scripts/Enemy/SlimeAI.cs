@@ -48,7 +48,13 @@ public class SlimeAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(knockbackCount <= 0)
+        if (target == null)
+        {
+            var p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null)
+                target = p.transform;
+        }
+        if (knockbackCount <= 0)
         {
             WalkSFX(true);
             if (Mathf.Abs(target.position.x - entity.position.x) <= detectionRange)

@@ -39,7 +39,6 @@ public class Chest : MonoBehaviour
     void DrawMedKitChance()
     {
         float chance = Random.Range(0, 100);
-        Debug.Log(chance.ToString());
         if(chance <= MedKitDropChance) {
             Instantiate(medKitPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         }

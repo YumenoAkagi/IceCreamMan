@@ -19,6 +19,7 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt(RETRY_LEVEL_KEY));
+        int retryScene = PlayerPrefs.GetInt(RETRY_LEVEL_KEY);
+        SceneManager.LoadScene(retryScene);
     }
 }

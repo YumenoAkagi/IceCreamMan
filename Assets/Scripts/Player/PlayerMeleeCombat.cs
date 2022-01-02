@@ -73,7 +73,6 @@ public class PlayerMeleeCombat : MonoBehaviour
             if (e.transform.name == "Grandpa")
             {
                 Rigidbody2D eRb = e.transform.GetComponent<Rigidbody2D>();
-                Debug.Log(eRb);
                 if (eRb != null)
                 {
                     if (transform.position.x >= e.transform.position.x)

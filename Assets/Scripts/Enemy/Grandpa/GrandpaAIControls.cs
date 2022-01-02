@@ -29,13 +29,22 @@ public class GrandpaAIControls : MonoBehaviour
 
         if(target == null)
         {
-            target = FindObjectOfType<PlayerMovements>().GetComponent<Rigidbody2D>();
+            var p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null)
+                target = p.GetComponent<Rigidbody2D>();
         }
     }
 
     private void FixedUpdate()
     {
-        if(knockbackCount <= 0)
+        if (target == null)
+        {
+            var p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null)
+                target = p.GetComponent<Rigidbody2D>();
+        }
+
+        if (knockbackCount <= 0)
         {
             Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, detectionRange);
             Collider2D[] attCols = Physics2D.OverlapCircleAll(transform.position, attRangeBeforeDash);
