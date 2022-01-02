@@ -29,6 +29,7 @@ public class PasswordCheck : MonoBehaviour
 
     public void CheckPassword()
     {
+        Debug.Log("Checking Password...");
         if (UserInput.text == DoorPassword)
         {
             PasswordPanel.SetActive(false);

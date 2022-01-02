@@ -17,6 +17,7 @@ public class PlayerRangedCombat : MonoBehaviour
     int totalAmmo = 20;
     bool canShoot = true;
     bool IsReloading = false;
+    bool bulletEmpty = false;
 
 
     private void Awake()
@@ -26,12 +27,15 @@ public class PlayerRangedCombat : MonoBehaviour
 
     void Update()
     {
-        if(bulletMag <= 0 && canShoot)
+        if (!canShoot)
+            return;
+
+        if(bulletMag <= 0 && !bulletEmpty)
         {
-            canShoot = false;
+            bulletEmpty = true;
         }
 
-        if (Input.GetButtonDown("Fire2") && canShoot)
+        if (Input.GetButtonDown("Fire2") && !bulletEmpty)
         {
             Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
             bulletMag--;
@@ -83,5 +87,15 @@ public class PlayerRangedCombat : MonoBehaviour
     public int GetMagAmmo()
     {
         return bulletMag;
+    }
+
+    public void EnableShoot()
+    {
+        canShoot = true;
+    }
+
+    public void DisableShoot()
+    {
+        canShoot = false;
     }
 }

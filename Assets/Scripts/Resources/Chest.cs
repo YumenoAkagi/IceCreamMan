@@ -11,6 +11,7 @@ public class Chest : MonoBehaviour
     public float MedKitDropChance = 20f;
     public GameObject medKitPrefab;
     public GameObject clue;
+    public AudioSource chestOpenSFX;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class Chest : MonoBehaviour
     public void OpenChest()
     {
         animator.SetBool(CHEST_OPEN_BOOL, true);
+        chestOpenSFX.Play();
         DrawMedKitChance();
 
         GetComponent<Collider2D>().enabled = false;

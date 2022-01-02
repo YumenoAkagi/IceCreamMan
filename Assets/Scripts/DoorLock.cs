@@ -29,15 +29,18 @@ public class DoorLock : MonoBehaviour
         {
             isInteractable = true;
             collision.transform.GetComponent<PlayerMeleeCombat>().canAttack = false;
+            collision.transform.GetComponent<PlayerRangedCombat>().DisableShoot();
         }
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
+    private void OnCollisionExit2D(Collision2D collision)
+    { 
         if (collision.transform.CompareTag("Player"))
         {
-            isInteractable = true;
+            isInteractable = false;
             collision.transform.GetComponent<PlayerMeleeCombat>().canAttack = true;
+            collision.transform.GetComponent<PlayerRangedCombat>().EnableShoot();
+
         }
     }
 }
