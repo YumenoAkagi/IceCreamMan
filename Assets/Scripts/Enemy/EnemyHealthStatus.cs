@@ -16,7 +16,8 @@ public class EnemyHealthStatus : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currHealth -= damage;
-        hitSFX.Play();
+        if (hitSFX != null)
+            hitSFX.Play();
 
         if(currHealth <= 0)
         {

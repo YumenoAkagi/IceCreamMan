@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
         // sfx audios update volume
         foreach(AudioSource s in SFXAudios)
         {
+            Debug.Log(s.name + " : " + masterVol * sfxVol);
             // update volume
             s.volume = masterVol * sfxVol;
         }

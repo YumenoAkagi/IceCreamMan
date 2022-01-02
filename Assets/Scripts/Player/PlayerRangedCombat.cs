@@ -53,7 +53,7 @@ public class PlayerRangedCombat : MonoBehaviour
     {
         IsReloading = true;
         reloadSFX.Play();
-        canShoot = false;
+        bulletEmpty = true;
 
         yield return new WaitForSeconds(ReloadTime);
 
@@ -71,7 +71,7 @@ public class PlayerRangedCombat : MonoBehaviour
         }
 
         IsReloading = false;
-        canShoot = true;
+        bulletEmpty = false;
     }
 
     public void AddTotalAmmo(int ammo)
