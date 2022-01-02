@@ -47,6 +47,7 @@ public class PasswordCheck : MonoBehaviour
     IEnumerator Correct()
     {
         CorrectPanel.SetActive(true);
+        doorOpenSFX.Play();
 
         yield return new WaitForSeconds(waitTime);
         CorrectPanel.SetActive(false);
@@ -58,6 +59,7 @@ public class PasswordCheck : MonoBehaviour
     IEnumerator Incorrect()
     {
         IncorrectPanel.SetActive(true);
+        doorCloseSFX.Play();
 
         yield return new WaitForSeconds(waitTime);
         IncorrectPanel.SetActive(false);

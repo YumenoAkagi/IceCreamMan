@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealthStatus : MonoBehaviour
 {
-    public AudioSource hitSFX;
+    public AudioSource hitSFX, deadSFX;
     public int maxHealth;
     int currHealth;
 
@@ -20,7 +20,9 @@ public class EnemyHealthStatus : MonoBehaviour
 
         if(currHealth <= 0)
         {
-            // dead animation
+            // do before dead
+            if(deadSFX != null)
+                deadSFX.Play();
             // remove enemy
             Destroy(gameObject);
         }

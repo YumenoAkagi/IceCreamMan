@@ -51,9 +51,16 @@ public class PlayerMovements : MonoBehaviour {
 			anim.SetFloat("velocity", Mathf.Abs(horizontalInput));
 
 			if (horizontalInput < -0.01f || horizontalInput > 0.01f)
-				walkSFX.Play();
+            {
+				if(!walkSFX.isPlaying)
+					walkSFX.Play();
+			}
 			else
-				walkSFX.Stop();
+            {
+				if (walkSFX.isPlaying)
+					walkSFX.Stop();
+			}
+				
 
 
             // flip character left right

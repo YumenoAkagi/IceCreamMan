@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -348,6 +348,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 88309946}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &88309948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2799507113623520701, guid: e24915333160be9459f84ecc465b8183,
+    type: 3}
+  m_PrefabInstance: {fileID: 88309946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &228770276
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,12 +456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGMAudio: {fileID: 1040384004}
-  SFXAudios:
-  - {fileID: 78008168}
-  - {fileID: 287105906}
-  - {fileID: 2019130752}
-  - {fileID: 674275824}
-  - {fileID: 1132427854}
 --- !u!4 &267485672
 Transform:
   m_ObjectHideFlags: 0
@@ -486,6 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 283702501}
   - component: {fileID: 283702500}
+  - component: {fileID: 283702503}
   - component: {fileID: 283702502}
   m_Layer: 0
   m_Name: LockTo Dining Room
@@ -586,6 +587,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.824747, y: 0.27102208}
   m_EdgeRadius: 0
+--- !u!114 &283702503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283702499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02650296e70e6b244a498e46fc175168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PasswordPanel: {fileID: 88309948}
 --- !u!1 &287105905
 GameObject:
   m_ObjectHideFlags: 0

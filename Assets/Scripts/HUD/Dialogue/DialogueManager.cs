@@ -10,10 +10,14 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueTextField, nameTextField;
     private bool isSceneDialogue = false;
     public GameObject DialoguePanel, nextText;
+    public AudioSource typingSFX;
+
+    bool CanGoToNextDialogue = false;
+    float TypingWaitSec = .025f;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && CanGoToNextDialogue)
         {
             NextDialogue();
         }
@@ -46,6 +50,8 @@ public class DialogueManager : MonoBehaviour
     public void NextDialogue()
     {
         nextText.SetActive(false);
+        CanGoToNextDialogue = false;
+
         if (Scripts.Count <= 0)
         {
             StopDialogue();
@@ -79,12 +85,17 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueTextField.text = "";
 
+        if (typingSFX != null)
+            typingSFX.Play();
+
         foreach(char letter in dialogue.ToCharArray())
         {
             dialogueTextField.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(TypingWaitSec);
         }
 
         nextText.SetActive(true);
+        CanGoToNextDialogue = true;
+        typingSFX.Stop();
     }
 }
