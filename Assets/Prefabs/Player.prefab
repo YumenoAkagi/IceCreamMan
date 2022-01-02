@@ -836,7 +836,7 @@ Transform:
   m_GameObject: {fileID: 9185476664620786457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.45, y: -3.11, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 7890207182109536666}
   - {fileID: 3112703656150876474}
@@ -959,8 +959,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8317544034692593247, guid: 4e8ba70b642b9064c8e0c500c15eb7eb,
     type: 3}
   ReloadTime: 2
+  ammoSystem: {fileID: 0}
   gunshotSFX: {fileID: 2442589697632905838}
   reloadSFX: {fileID: 4224353741665712569}
+  magCapacity: 5
 --- !u!114 &9185476664620786454
 MonoBehaviour:
   m_ObjectHideFlags: 0

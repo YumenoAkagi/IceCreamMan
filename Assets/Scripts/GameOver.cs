@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    private static string RETRY_LEVEL_KEY = "RetryLevel";
+
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(0);
@@ -17,6 +19,6 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-
+        SceneManager.LoadScene(PlayerPrefs.GetInt(RETRY_LEVEL_KEY));
     }
 }

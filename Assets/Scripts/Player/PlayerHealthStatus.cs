@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 
 public class PlayerHealthStatus : MonoBehaviour {
+    private static string RETRY_LEVEL_KEY = "RetryLevel";
     public float currHealth, maxHealth;
     public HealthBarSystem healthBarSystem;
 
@@ -19,6 +20,7 @@ public class PlayerHealthStatus : MonoBehaviour {
             }
 
             // trigger game over scene
+            PlayerPrefs.SetInt(RETRY_LEVEL_KEY, SceneManager.GetActiveScene().buildIndex);
             SceneManager.LoadScene("GameOverScene");
         }
 

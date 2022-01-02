@@ -1443,3 +1443,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c0d443d436fe14d8481d48d852d3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAmmoStatus: {fileID: 0}
+  ammoText: {fileID: 8073406893096074705}
