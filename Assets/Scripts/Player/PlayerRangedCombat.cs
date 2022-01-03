@@ -10,11 +10,11 @@ public class PlayerRangedCombat : MonoBehaviour
     public float ReloadTime = 1f;
     public AmmoSystem ammoSystem;
 
-    public AudioSource gunshotSFX, reloadSFX;
+    public AudioSource gunshotSFX, reloadSFX, emptyShotSFX;
 
     int bulletMag = 5;
     public int magCapacity = 5;
-    int totalAmmo = 20;
+    int totalAmmo = 10;
     bool canShoot = true;
     bool IsReloading = false;
     bool bulletEmpty = false;
@@ -35,12 +35,18 @@ public class PlayerRangedCombat : MonoBehaviour
             bulletEmpty = true;
         }
 
+       
+
         if (Input.GetButtonDown("Fire2") && !bulletEmpty)
         {
             Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
             bulletMag--;
             gunshotSFX.Play();
-        } else if(Input.GetButtonDown("Reload") || Input.GetButtonDown("Fire2") && !IsReloading)
+        } else if(totalAmmo == 0 && bulletEmpty && Input.GetButtonDown("Fire2")) {
+            emptyShotSFX.Play();
+            return;
+        }
+        else if(Input.GetButtonDown("Reload") || Input.GetButtonDown("Fire2") && !IsReloading)
         {
             // force reload
             StartCoroutine(Reload());

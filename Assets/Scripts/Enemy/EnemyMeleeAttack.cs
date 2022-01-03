@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMeleeAttack : MonoBehaviour
 {
+    private static string ATTACK_TRIGGER = "meleeAttack";
     public float knockback = 3f;
     public float damage = 20f;
 
@@ -11,6 +12,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     float nextAttackTime;
 
     Rigidbody2D enemyRb;
+
+    public Animator animator;
 
     bool canAttack = true;
     private void Awake()
@@ -65,6 +68,12 @@ public class EnemyMeleeAttack : MonoBehaviour
         if (collision.transform.gameObject.CompareTag("Player"))
         {
             canAttack = false;
+
+            if(animator != null)
+            {
+                animator.SetTrigger(ATTACK_TRIGGER);
+            }
+
             PlayerHealthStatus health = collision.transform.GetComponent<PlayerHealthStatus>();
             health.TakeDamage(damage);
             Rigidbody2D playerRb = collision.transform.GetComponent<Rigidbody2D>();

@@ -189,6 +189,7 @@ MonoBehaviour:
   knockback: 3
   damage: 50
   attackWaitTime: 5
+  animator: {fileID: 8742719819192920630}
 --- !u!114 &4536448180062521460
 MonoBehaviour:
   m_ObjectHideFlags: 0

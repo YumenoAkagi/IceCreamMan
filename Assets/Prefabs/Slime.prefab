@@ -486,7 +486,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback: 5
   damage: 10
-  attackWaitTime: 5
+  attackWaitTime: 0
+  animator: {fileID: 0}
 --- !u!114 &8460977581676732045
 MonoBehaviour:
   m_ObjectHideFlags: 0
