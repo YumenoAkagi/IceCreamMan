@@ -10,7 +10,7 @@ public class LandMine : MonoBehaviour
     public float Damage = 30f;
     public float ActivationTime = 5f;
 
-    public GameObject indicatorLight;
+    public GameObject indicatorLight, explosionEffect;
     bool LightOn = false;
     float nextBeepTime;
 
@@ -24,38 +24,41 @@ public class LandMine : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!IsDeployed)
         {
-            if (collision.CompareTag("Player"))
+            if (collision.transform.CompareTag("Player"))
             {
                 // pick up item
                 FindObjectOfType<PlayerHotkeyInventory>().AddHotkeyItem2();
                 Destroy(gameObject);
             }
-        } 
-        else if(IsActivated)
+        }
+        else if (IsActivated)
         {
             // deployed land mine
             // damage all nearby enemy and player
             Collider2D[] entities = Physics2D.OverlapCircleAll(transform.position, ExplosionRadius);
 
-            foreach(var e in entities)
+            foreach (var e in entities)
             {
                 if (e.CompareTag("Player"))
                 {
                     // damage player
                     e.GetComponent<PlayerHealthStatus>().TakeDamage(Damage);
-                } else if(e.CompareTag("Enemy"))
+                }
+                else if (e.CompareTag("Enemy"))
                 {
                     e.GetComponent<EnemyHealthStatus>().TakeDamage((int)Damage);
-                } else if (e.CompareTag("Boss"))
+                }
+                else if (e.CompareTag("Boss"))
                 {
                     e.GetComponent<IceCreamManAIControl>().TakeDamage(Damage);
                 }
             }
 
+            Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

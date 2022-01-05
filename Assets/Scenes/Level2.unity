@@ -156,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 9185476664620786457, guid: c3126e75e9a4f3c48b0943903f215403,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9185476664620786459, guid: c3126e75e9a4f3c48b0943903f215403,
         type: 3}
@@ -16328,7 +16328,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.084941
+  orthographic size: 2.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -21763,6 +21763,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PasswordCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3869286263814032994, guid: bd867e7df6dbef94d8c25ff68d486402,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3869286264391455351, guid: bd867e7df6dbef94d8c25ff68d486402,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -22041,7 +22046,7 @@ PrefabInstance:
     - target: {fileID: 6584342767174794148, guid: 77d13f851eabdcb4e9d7e3240eb6df16,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6584342767174794152, guid: 77d13f851eabdcb4e9d7e3240eb6df16,
         type: 3}
