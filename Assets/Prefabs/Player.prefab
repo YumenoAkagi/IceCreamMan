@@ -348,7 +348,7 @@ Transform:
   - {fileID: 8712910030619538740}
   - {fileID: 8695424012900413858}
   m_Father: {fileID: 9185476664620786459}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3989277069873432167
 GameObject:
@@ -930,6 +930,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &8763221030782996433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266126940516176409}
+  m_Layer: 0
+  m_Name: DeployPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1266126940516176409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763221030782996433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.291, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9185476664620786459}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9185476664620786457
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +999,7 @@ Transform:
   - {fileID: 7890207182109536666}
   - {fileID: 3112703656150876474}
   - {fileID: 8510610761509639004}
+  - {fileID: 1266126940516176409}
   - {fileID: 2405285128580767245}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1138,6 +1169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hotkeyMechanics: {fileID: 0}
   healthStatus: {fileID: 9185476664620786455}
+  landMinePrefab: {fileID: 7734621142693726077, guid: a96ee9f6acc163549ab52b7d00e3f747,
+    type: 3}
+  deployPoint: {fileID: 1266126940516176409}
 --- !u!114 &6430200746939805190
 MonoBehaviour:
   m_ObjectHideFlags: 0

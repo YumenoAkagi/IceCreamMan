@@ -522,6 +522,10 @@ MonoBehaviour:
   hitSFX: {fileID: 3593151880370536421}
   deadSFX: {fileID: 8019718988209055950}
   maxHealth: 50
+  bulletPrefab: {fileID: 8317544034692593247, guid: 4e8ba70b642b9064c8e0c500c15eb7eb,
+    type: 3}
+  landMinePrefab: {fileID: 7734621142693726077, guid: a96ee9f6acc163549ab52b7d00e3f747,
+    type: 3}
 --- !u!95 &8460977581676732043
 Animator:
   serializedVersion: 3

@@ -9,6 +9,9 @@ public class PlayerHotkeyInventory : MonoBehaviour
     public HotkeyMechanics hotkeyMechanics;
     public PlayerHealthStatus healthStatus;
 
+    public GameObject landMinePrefab;
+    public Transform deployPoint;
+
     private void Awake()
     {
         healthStatus = GetComponent<PlayerHealthStatus>();
@@ -29,21 +32,17 @@ public class PlayerHotkeyInventory : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (healthStatus.currHealth < healthStatus.maxHealth && hotkeyQty2 > 0)
-            {
-                hotkeyQty2 -= 1;
-                healthStatus.Heal(10);
-                hotkeyMechanics.UpdateItemQty();
-            }  
+            if (hotkeyQty2 <= 0)
+                return;
+
+            hotkeyQty2--;
+            GameObject obj = Instantiate(landMinePrefab, deployPoint.position, Quaternion.identity);
+            obj.GetComponent<LandMine>().DeployLandMine();
+            hotkeyMechanics.UpdateItemQty();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (healthStatus.currHealth < healthStatus.maxHealth && hotkeyQty3 > 0)
-            {
-                hotkeyQty3 -= 1;
-                healthStatus.Heal(5);
-                hotkeyMechanics.UpdateItemQty();
-            }
+
         }
     }
 
