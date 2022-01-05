@@ -10,6 +10,20 @@ public class LandMine : MonoBehaviour
     public float Damage = 30f;
     public float ActivationTime = 5f;
 
+    public GameObject indicatorLight;
+    bool LightOn = false;
+    float nextBeepTime;
+
+    private void Update()
+    {
+        if (IsActivated && Time.time >= nextBeepTime)
+        {
+            LightOn = !LightOn;
+            indicatorLight.SetActive(LightOn);
+            nextBeepTime = Time.time + 1f;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!IsDeployed)
@@ -56,6 +70,7 @@ public class LandMine : MonoBehaviour
     {
         yield return new WaitForSeconds(ActivationTime);
         IsActivated = true;
+        nextBeepTime = Time.time + 1f;
     }
 
     private void OnDrawGizmosSelected()
