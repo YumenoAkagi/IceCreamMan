@@ -17771,7 +17771,7 @@ GameObject:
   - component: {fileID: 1929773211}
   - component: {fileID: 1929773213}
   - component: {fileID: 1929773212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CollisionWalls
   m_TagString: WorldWall
   m_Icon: {fileID: 0}
