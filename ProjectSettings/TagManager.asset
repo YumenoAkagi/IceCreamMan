@@ -10,6 +10,7 @@ TagManager:
   - Chest
   - Trap
   - Lock
+  - Boss
   layers:
   - Default
   - TransparentFX

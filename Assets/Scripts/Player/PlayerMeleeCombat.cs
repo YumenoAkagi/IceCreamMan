@@ -46,8 +46,15 @@ public class PlayerMeleeCombat : MonoBehaviour
 
         foreach(Collider2D e in enemies)
         {
-            EnemyHealthStatus enemyHealth = e.GetComponent<EnemyHealthStatus>();
-            enemyHealth.TakeDamage((int)attDmg);
+            if (!e.CompareTag("Boss") && e.GetComponent<EnemyHealthStatus>() != null)
+            {
+                EnemyHealthStatus enemyHealth = e.GetComponent<EnemyHealthStatus>();
+                enemyHealth.TakeDamage((int)attDmg);
+            } else if(e.CompareTag("Boss"))
+            {
+                e.GetComponent<IceCreamManAIControl>().TakeDamage(attDmg);
+            }
+                
 
             // knockback enemy if can be knockback
             if(e.transform.name == "Slime")
@@ -70,7 +77,7 @@ public class PlayerMeleeCombat : MonoBehaviour
                     ai.knockbackCount = ai.knockbackLength;
                 }
             }
-            if (e.transform.name == "Grandpa")
+            else if (e.transform.name == "Grandpa")
             {
                 Rigidbody2D eRb = e.transform.GetComponent<Rigidbody2D>();
                 if (eRb != null)

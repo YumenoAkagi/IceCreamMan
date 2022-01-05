@@ -6,6 +6,7 @@ using System;
 public class Bullet : MonoBehaviour
 {
     public float bulletSpeed = 20f;
+    public float BulletDamage = 20f;
     public Rigidbody2D bulletRb;
 
     public AudioSource groundHitSFX;
@@ -20,8 +21,13 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy")) 
         {
-            collision.GetComponent<EnemyHealthStatus>().TakeDamage(20);
-        } else
+            collision.GetComponent<EnemyHealthStatus>().TakeDamage((int)BulletDamage);
+        } 
+        else if (collision.CompareTag("Boss"))
+        {
+            collision.GetComponent<IceCreamManAIControl>().TakeDamage(BulletDamage);
+        }
+        else
         {
             groundHitSFX.Play();
         }
