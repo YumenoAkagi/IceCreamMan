@@ -7,6 +7,8 @@ using System;
 
 public class PasswordCheck : MonoBehaviour
 {
+    private static string RETRY_LEVEL_KEY = "RetryLevel";
+
     public GameObject Door;
     public string DoorPassword;
     public InputField UserInput;
@@ -36,12 +38,21 @@ public class PasswordCheck : MonoBehaviour
         }
         else
         {
+            maxTry--;
             StartCoroutine(Incorrect());
         }
 
         if (maxTry < 0)
         {
-            SceneManager.LoadScene("GameOver");
+            var objects = GameObject.FindObjectsOfType<GameObject>();
+            foreach (var o in objects)
+            {
+                Destroy(o.gameObject);
+            }
+
+            // trigger game over scene
+            PlayerPrefs.SetInt(RETRY_LEVEL_KEY, SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("GameOverScene");
         }
     }
     IEnumerator Correct()
@@ -63,6 +74,5 @@ public class PasswordCheck : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
         IncorrectPanel.SetActive(false);
-        maxTry--;
     }
 }
