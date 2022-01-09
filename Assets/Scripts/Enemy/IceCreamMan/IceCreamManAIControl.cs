@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class IceCreamManAIControl : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class IceCreamManAIControl : MonoBehaviour
     public float AttackDamage = 30f;
     public float AttackRange = 10f;
     public float MovementSpeed = 3f;
+    public float TriggerRadius = 5f;
 
     public GameObject iceCreamPrefab, projectilePrefab;
     public Rigidbody2D target;
     public BossHealthbarSystem bossHealthbarSystem;
     public Transform shootPoint;
+    public GameObject healthBarCanvas;
 
     bool Initiated = false;
     bool FacingLeft = false;
@@ -29,9 +32,20 @@ public class IceCreamManAIControl : MonoBehaviour
 
     void Update()
     {
+        if (!Initiated)
+        {
+            Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, TriggerRadius);
+            if(Array.Exists(cols, x => x.CompareTag("Player")))
+            {
+                Initiated = true;
+                healthBarCanvas.SetActive(true);
+            }
+        }
+
+
         // triggered when player is in range
-        //if (!Initiated)
-        //    return;
+        if (!Initiated)
+            return;
 
         // if player not in range
         FollowPlayer();
@@ -101,5 +115,10 @@ public class IceCreamManAIControl : MonoBehaviour
         float Vy = (dist.y + 0.5f * Mathf.Abs(Physics2D.gravity.y) * time) / time;
 
         return new Vector2(Vx, Vy);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, TriggerRadius);
     }
 }

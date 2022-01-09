@@ -8,6 +8,7 @@ public class HealthBarSystem : MonoBehaviour {
 
     public Image healthBarImg;
     public PlayerHealthStatus playerHealthStatus;
+    public Animator hurtAnim;
 
     private void Awake()
     {
@@ -32,5 +33,7 @@ public class HealthBarSystem : MonoBehaviour {
         float currHealth = playerHealthStatus.currHealth;
         float maxHealth = playerHealthStatus.maxHealth;
         healthBarImg.fillAmount = Mathf.Clamp(currHealth / maxHealth, 0, 1f);
+
+        hurtAnim.SetTrigger("isHurt");
     }
 }

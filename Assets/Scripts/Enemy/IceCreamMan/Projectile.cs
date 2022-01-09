@@ -8,7 +8,6 @@ public class Projectile : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            Debug.Log("Player Hit!");
             Destroy(gameObject);
         }
     }
