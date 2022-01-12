@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -143,6 +143,11 @@ PrefabInstance:
       propertyPath: hotkeyMechanics
       value: 
       objectReference: {fileID: 1269133146}
+    - target: {fileID: 9185476664620786455, guid: c3126e75e9a4f3c48b0943903f215403,
+        type: 3}
+      propertyPath: hurtAnim
+      value: 
+      objectReference: {fileID: 1327331691}
     - target: {fileID: 9185476664620786455, guid: c3126e75e9a4f3c48b0943903f215403,
         type: 3}
       propertyPath: healthBarSystem
@@ -23664,6 +23669,12 @@ PrefabInstance:
       objectReference: {fileID: 1770483230}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d13f851eabdcb4e9d7e3240eb6df16, type: 3}
+--- !u!95 &1327331691 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1246783521470879718, guid: 77d13f851eabdcb4e9d7e3240eb6df16,
+    type: 3}
+  m_PrefabInstance: {fileID: 1327331690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1397640101
 GameObject:
   m_ObjectHideFlags: 0

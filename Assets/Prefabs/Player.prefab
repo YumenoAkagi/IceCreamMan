@@ -1155,6 +1155,7 @@ MonoBehaviour:
   currHealth: 100
   maxHealth: 100
   healthBarSystem: {fileID: 0}
+  hurtAnim: {fileID: 0}
 --- !u!114 &9185476664620786449
 MonoBehaviour:
   m_ObjectHideFlags: 0

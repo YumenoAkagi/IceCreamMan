@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &61398870811810919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4945267404790975759}
+  m_Layer: 12
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4945267404790975759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61398870811810919}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.329, y: -0.023, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8742719819192920624}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &8742719819192920631
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,12 +40,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8742719819192920624}
   - component: {fileID: 8742719819192920625}
+  - component: {fileID: 4991096739665534159}
   - component: {fileID: 8742719819192920626}
   - component: {fileID: 8742719819192920627}
   - component: {fileID: 8742719819192920630}
   - component: {fileID: 8742719819192920589}
-  - component: {fileID: 5277987038433235156}
   - component: {fileID: 4536448180062521460}
+  - component: {fileID: 5763396065555699644}
   m_Layer: 12
   m_Name: Grandpa
   m_TagString: Enemy
@@ -33,7 +64,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.33, y: -3.21, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4945267404790975759}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,6 +120,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4991096739665534159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742719819192920631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9cd2299a90657419349e9debccd411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 3
+  damage: 20
+  attackWaitTime: 5
+  animator: {fileID: 8742719819192920630}
 --- !u!61 &8742719819192920626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,27 +217,12 @@ MonoBehaviour:
   target: {fileID: 0}
   detectionRange: 8
   attRangeBeforeDash: 5
+  meleeRangeTrigger: 1.45
   movementSpeed: 2
   dashRate: 1
   dashDist: 50
   knockbackCount: 0
   knockbackLength: 0.5
---- !u!114 &5277987038433235156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8742719819192920631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9cd2299a90657419349e9debccd411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockback: 3
-  damage: 50
-  attackWaitTime: 5
-  animator: {fileID: 8742719819192920630}
 --- !u!114 &4536448180062521460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,3 +238,20 @@ MonoBehaviour:
   hitSFX: {fileID: 0}
   deadSFX: {fileID: 0}
   maxHealth: 75
+  bulletPrefab: {fileID: 0}
+  landMinePrefab: {fileID: 0}
+--- !u!114 &5763396065555699644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742719819192920631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9506b5dbf238bf04b80bf2f24710e3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 4945267404790975759}
+  attackRange: 0.75
+  Damage: 20

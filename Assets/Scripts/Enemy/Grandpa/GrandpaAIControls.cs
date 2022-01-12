@@ -9,6 +9,7 @@ public class GrandpaAIControls : MonoBehaviour
     public Rigidbody2D target;
     public float detectionRange;
     public float attRangeBeforeDash;
+    public float meleeRangeTrigger = 3f;
     public float movementSpeed = 2f;
 
     Animator animator;
@@ -48,11 +49,15 @@ public class GrandpaAIControls : MonoBehaviour
         {
             Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, detectionRange);
             Collider2D[] attCols = Physics2D.OverlapCircleAll(transform.position, attRangeBeforeDash);
+            Collider2D[] meleeCols = Physics2D.OverlapCircleAll(transform.position, meleeRangeTrigger);
+
             if (Array.Exists(cols, c => c.transform.CompareTag(target.tag)))
             {
                 if (!Array.Exists(attCols, ac => ac.transform.CompareTag(target.tag)))
                     ChasePlayer();
-                else
+                else if (Array.Exists(meleeCols, ac => ac.transform.CompareTag(target.tag)))
+                    animator.SetTrigger("Attack");
+                else if (Array.Exists(attCols, ac => ac.transform.CompareTag(target.tag)))
                     DashMove();
             }
             else
@@ -148,5 +153,6 @@ public class GrandpaAIControls : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, detectionRange);
         Gizmos.DrawWireSphere(transform.position, attRangeBeforeDash);
+        Gizmos.DrawWireSphere(transform.position, meleeRangeTrigger);
     }
 }

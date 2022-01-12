@@ -18740,6 +18740,16 @@ PrefabInstance:
       propertyPath: hotkeyMechanics
       value: 
       objectReference: {fileID: 807247868}
+    - target: {fileID: 9185476664620786455, guid: c3126e75e9a4f3c48b0943903f215403,
+        type: 3}
+      propertyPath: hurtAnim
+      value: 
+      objectReference: {fileID: 1650618959}
+    - target: {fileID: 9185476664620786455, guid: c3126e75e9a4f3c48b0943903f215403,
+        type: 3}
+      propertyPath: healthBarSystem
+      value: 
+      objectReference: {fileID: 916985178}
     - target: {fileID: 9185476664620786457, guid: c3126e75e9a4f3c48b0943903f215403,
         type: 3}
       propertyPath: m_Name
@@ -19087,6 +19097,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 834735186}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &916985178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6584342767174794155, guid: 77d13f851eabdcb4e9d7e3240eb6df16,
+    type: 3}
+  m_PrefabInstance: {fileID: 807247867}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153bd799f0f43064294a74362a51cfeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &918064075
 GameObject:
   m_ObjectHideFlags: 0
@@ -44547,6 +44569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4023f08c1419d01449c605f143e70e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1650618959 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1246783521470879718, guid: 77d13f851eabdcb4e9d7e3240eb6df16,
+    type: 3}
+  m_PrefabInstance: {fileID: 807247867}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1945450274
 GameObject:
   m_ObjectHideFlags: 0

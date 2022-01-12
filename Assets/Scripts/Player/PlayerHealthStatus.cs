@@ -5,6 +5,7 @@ public class PlayerHealthStatus : MonoBehaviour {
     private static string RETRY_LEVEL_KEY = "RetryLevel";
     public float currHealth, maxHealth;
     public HealthBarSystem healthBarSystem;
+    public Animator hurtAnim;
 
     public void TakeDamage(float dmgTaken)
     {
@@ -24,6 +25,7 @@ public class PlayerHealthStatus : MonoBehaviour {
             SceneManager.LoadScene("GameOverScene");
         }
 
+        hurtAnim.SetTrigger("isHurt");
         // update healthbar UI
         healthBarSystem.UpdateHealthBar();
     }
