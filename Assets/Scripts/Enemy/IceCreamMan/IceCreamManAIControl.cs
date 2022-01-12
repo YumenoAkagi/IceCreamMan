@@ -18,6 +18,8 @@ public class IceCreamManAIControl : MonoBehaviour
     public Transform shootPoint;
     public GameObject healthBarCanvas;
 
+    public Animator animator;
+
     bool Initiated = false;
     bool FacingLeft = false;
     float TimeBeforeNextAttackPattern = 5f;
@@ -47,11 +49,7 @@ public class IceCreamManAIControl : MonoBehaviour
         if (!Initiated)
             return;
 
-        // if player not in range
-        FollowPlayer();
-
-        // if player in range
-        AttackPlayer();
+        animator.SetBool("Triggered", true);
     }
 
     void SummonIceCreamObstacles()
@@ -59,7 +57,7 @@ public class IceCreamManAIControl : MonoBehaviour
         Instantiate(iceCreamPrefab, transform.position, Quaternion.identity);
     }
 
-    void FollowPlayer()
+    public void LookAtPlayer()
     {
         if(target.position.x < transform.position.x && !FacingLeft)
         {
@@ -69,8 +67,6 @@ public class IceCreamManAIControl : MonoBehaviour
         {
             Flip();
         }
-
-        GetComponent<Rigidbody2D>().velocity = new Vector2(MovementSpeed, 0f);
     }
 
     void Flip()
@@ -80,7 +76,7 @@ public class IceCreamManAIControl : MonoBehaviour
         MovementSpeed *= -1;
     }
 
-    void AttackPlayer()
+    public void AttackPlayer()
     {
         LaunchProjectile();
     }
@@ -93,6 +89,7 @@ public class IceCreamManAIControl : MonoBehaviour
         if(CurrHealth <= 0f)
         {
             // boss defeated
+            enabled = false;
         }
     }
 
