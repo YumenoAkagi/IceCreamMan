@@ -150,13 +150,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8a7e4746b13e648af4679cd44a3d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: ???
+  Name: 
   Dialogues:
-  - Hmm that Ice cream truck looks odd
-  - 'Dad! Dad! There''s an Ice cream truck can you buy me one ? '
-  - I don't like how that Ice cream truck looks honey, I'm not sure about it, besides
-    you have't had lunch
-  - 'But Dad I really want some Ice Cream right now, can you buy me pleeeeeas '
+  - "Detective:\n Hmm that Ice cream truck looks odd"
+  - 'Cindy:
+
+    Dad! Dad! There''s an Ice cream truck can you buy me one ? '
+  - 'Detective:
+
+    I don''t like how that Ice cream truck looks honey, I''m not sure about it, besides
+    you have''t had lunch'
+  - 'Cindy:
+
+    But Dad I really want some Ice Cream right now, can you buy me pleeeeeas '
   - Ok, Ok but just this once
 --- !u!4 &150207716
 Transform:
