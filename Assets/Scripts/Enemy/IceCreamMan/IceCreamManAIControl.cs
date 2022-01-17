@@ -11,11 +11,17 @@ public class IceCreamManAIControl : MonoBehaviour
     public float AttackRange = 10f;
     public float MovementSpeed = 3f;
     public float TriggerRadius = 5f;
+    public int projectileCount = 3;
+    public float launchProjectileDelay = 1f;
+
+    public bool isVulnerable = false;
+
+    float nextLaunchTime = 0;
 
     public GameObject iceCreamPrefab, projectilePrefab;
     public Rigidbody2D target;
     public BossHealthbarSystem bossHealthbarSystem;
-    public Transform shootPoint;
+    public Transform shootPoint, attackPoint;
     public GameObject healthBarCanvas;
 
     public Animator animator;
@@ -49,7 +55,11 @@ public class IceCreamManAIControl : MonoBehaviour
         if (!Initiated)
             return;
 
-        animator.SetBool("Triggered", true);
+        if(!animator.GetBool("Triggered"))
+        {
+            animator.SetBool("Triggered", true);
+        }
+
     }
 
     void SummonIceCreamObstacles()
@@ -76,13 +86,16 @@ public class IceCreamManAIControl : MonoBehaviour
         MovementSpeed *= -1;
     }
 
-    public void AttackPlayer()
+    public void AttackMeleePlayer()
     {
-        LaunchProjectile();
+
     }
 
     public void TakeDamage(float dmg)
     {
+        if (!isVulnerable)
+            return;
+
         CurrHealth -= dmg;
         bossHealthbarSystem.UpdateHealthBar(Mathf.Clamp(CurrHealth / MaxHealth, 0, 1f));
 
@@ -93,7 +106,7 @@ public class IceCreamManAIControl : MonoBehaviour
         }
     }
 
-    void LaunchProjectile()
+    public void LaunchProjectile()
     {
         var o = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
         o.GetComponent<Rigidbody2D>().velocity = CalculateAngle();
@@ -101,17 +114,22 @@ public class IceCreamManAIControl : MonoBehaviour
 
     private Vector2 CalculateAngle()
     {
-        float time = 1f;
-
         Vector2 shootPos = new Vector2(shootPoint.position.x, shootPoint.position.y);
         Vector2 dist = target.position - shootPos;
-        Vector2 distX = dist;
-        distX.y = 0f;
 
-        float Vx = distX.x / time;
-        float Vy = (dist.y + 0.5f * Mathf.Abs(Physics2D.gravity.y) * time) / time;
+        return dist;
 
-        return new Vector2(Vx, Vy);
+        //float time = 1f;
+
+        //Vector2 shootPos = new Vector2(shootPoint.position.x, shootPoint.position.y);
+        //Vector2 dist = target.position - shootPos;
+        //Vector2 distX = dist;
+        //distX.y = 0f;
+
+        //float Vx = distX.x / time;
+        //float Vy = (dist.y + 0.5f * Mathf.Abs(Physics2D.gravity.y) * time) / time;
+
+        //return new Vector2(Vx, Vy);
     }
 
     private void OnDrawGizmosSelected()

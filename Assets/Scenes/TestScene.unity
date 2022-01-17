@@ -1208,6 +1208,7 @@ Transform:
   m_Children:
   - {fileID: 1959225690}
   - {fileID: 1324802463}
+  - {fileID: 579017204}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1228,6 +1229,9 @@ MonoBehaviour:
   AttackRange: 10
   MovementSpeed: 3
   TriggerRadius: 4.5
+  projectileCount: 3
+  launchProjectileDelay: 30
+  isVulnerable: 0
   iceCreamPrefab: {fileID: 2620172160660580318, guid: 6461c20d081ff7344ba45f317a5a3719,
     type: 3}
   projectilePrefab: {fileID: 2226400260676833591, guid: 058e8335ba5cd9c46ab98fbe33829eee,
@@ -1235,6 +1239,7 @@ MonoBehaviour:
   target: {fileID: 1214819562}
   bossHealthbarSystem: {fileID: 1430281005}
   shootPoint: {fileID: 1959225690}
+  attackPoint: {fileID: 579017204}
   healthBarCanvas: {fileID: 1324802462}
   animator: {fileID: 372092278}
 --- !u!50 &372092276
@@ -1515,6 +1520,36 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &579017203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579017204}
+  m_Layer: 12
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579017204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579017203}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.326, y: -0.047, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 372092274}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &622466935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9185476664620786459, guid: c3126e75e9a4f3c48b0943903f215403,

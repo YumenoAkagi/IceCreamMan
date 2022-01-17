@@ -7,6 +7,7 @@ public class NextLevelTrigger : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1f;
+    public bool isWin = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,7 +23,18 @@ public class NextLevelTrigger : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(index);
+        if(!isWin)
+            SceneManager.LoadScene(index);
+        else
+        {
+            var objects = GameObject.FindObjectsOfType<GameObject>();
+            foreach (var o in objects)
+            {
+                Destroy(o.gameObject);
+            }
+
+            SceneManager.LoadScene("WinScene");
+        }
     }
 
     public void LoadNextLevel()
