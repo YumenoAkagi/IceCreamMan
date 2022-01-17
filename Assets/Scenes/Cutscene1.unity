@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8a7e4746b13e648af4679cd44a3d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: ???
+  Name: 
   Dialogues:
   - Hmm that Ice cream truck looks odd
   - 'Dad! Dad! There''s an Ice cream truck can you buy me one ? '
