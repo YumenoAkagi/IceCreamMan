@@ -16926,7 +16926,7 @@ GameObject:
   - component: {fileID: 1699623097}
   - component: {fileID: 1699623098}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Clue1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
