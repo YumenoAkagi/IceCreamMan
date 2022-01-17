@@ -150,16 +150,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8a7e4746b13e648af4679cd44a3d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: ???
+  Name: 
   Dialogues:
-  - 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu pharetra
-    libero. '
-  - Proin nec nisl id odio pulvinar accumsan.    blandit vel erat sed commodo. Fusce.
-  - 'Nunc efficitur condimentum tellus vel interdum.
+  - 'Ice Cream Man:
 
-    Donec nec nisi eget justo
-    ultricesPellentesque ut efficitur augue, sit amet dapibus purus. Nulla tempus
-    ac at nibh.'
+    SIGH'
+  - 'Ice Cream Man:
+
+    SIGH..'
+  - 'Ice Cream Man:
+
+    SIGH.....'
+  - 'Ice Cream Man:
+
+    It has been such a long time since anyone buy a single Ice
+    Cream'
+  - 'Ice Cream Man:
+
+    I wish someone could buy some of these delicious Ice Cream'
 --- !u!4 &150207716
 Transform:
   m_ObjectHideFlags: 0
