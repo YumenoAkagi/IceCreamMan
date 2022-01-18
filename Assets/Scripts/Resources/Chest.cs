@@ -35,7 +35,18 @@ public class Chest : MonoBehaviour
 
         // unlock button in player's clue panel
         if(clueIndex != 0)
+        {
             FindObjectOfType<HealthBarSystem>().transform.GetComponentInChildren<CloseAllClues>(true).buttons[clueIndex - 1].SetActive(true);
+
+            var clueNotif = FindObjectOfType<HealthBarSystem>().clueObtainedNotif;
+            if (!clueNotif.activeInHierarchy)
+            {
+                clueNotif.SetActive(true);
+            } else
+            {
+                clueNotif.GetComponent<Animator>().SetTrigger("clueObtained");
+            }
+        }
 
         DrawMedKitChance();
 

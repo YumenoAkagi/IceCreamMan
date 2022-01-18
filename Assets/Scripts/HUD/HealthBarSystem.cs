@@ -8,7 +8,7 @@ public class HealthBarSystem : MonoBehaviour {
 
     public Image healthBarImg;
     public PlayerHealthStatus playerHealthStatus;
-    
+    public GameObject clueObtainedNotif;
 
     private void Awake()
     {
