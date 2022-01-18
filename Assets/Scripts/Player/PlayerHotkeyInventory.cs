@@ -11,6 +11,7 @@ public class PlayerHotkeyInventory : MonoBehaviour
 
     public GameObject landMinePrefab;
     public Transform deployPoint;
+    public AudioSource itemObtainedSFX;
 
     private void Awake()
     {
@@ -50,18 +51,21 @@ public class PlayerHotkeyInventory : MonoBehaviour
     {
         hotkeyQty1++;
         hotkeyMechanics.UpdateItemQty();
+        itemObtainedSFX.Play();
     }
 
     public void AddHotkeyItem2()
     {
         hotkeyQty2++;
         hotkeyMechanics.UpdateItemQty();
+        itemObtainedSFX.Play();
     }
 
     public void AddHotkeyItem3()
     {
         hotkeyQty3++;
         hotkeyMechanics.UpdateItemQty();
+        itemObtainedSFX.Play();
     }
 
     public string getHotkeyQty(int hotkey)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LandMine : MonoBehaviour
 {
@@ -9,10 +10,19 @@ public class LandMine : MonoBehaviour
     public float ExplosionRadius = 10f;
     public float Damage = 30f;
     public float ActivationTime = 5f;
+    public float ExplosionForce = 100f;
 
     public GameObject indicatorLight, explosionEffect;
+    public AudioSource explosionSFX;
     bool LightOn = false;
     float nextBeepTime;
+
+    private void Start()
+    {
+        var audio = Array.Find(FindObjectsOfType<AudioSource>(), x => x.name == "landmineExpSFX");
+        if (audio != null)
+            explosionSFX = audio;
+    }
 
     private void Update()
     {
@@ -59,6 +69,10 @@ public class LandMine : MonoBehaviour
             }
 
             Instantiate(explosionEffect, transform.position, transform.rotation);
+            //Knockback();
+            if (explosionSFX != null)
+                explosionSFX.Play();
+
             Destroy(gameObject);
         }
     }
@@ -69,11 +83,28 @@ public class LandMine : MonoBehaviour
         StartCoroutine(ActivateLandMine());
     }
 
+
     IEnumerator ActivateLandMine()
     {
         yield return new WaitForSeconds(ActivationTime);
         IsActivated = true;
         nextBeepTime = Time.time + 1f;
+    }
+
+    void Knockback()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, ExplosionRadius);
+
+        foreach(var col in cols)
+        {
+            Rigidbody2D rb = col.GetComponent<Rigidbody2D>();
+
+            if(rb != null)
+            {
+                // apply knockback
+                rb.AddExplosionForce(ExplosionForce, transform.position, ExplosionRadius);
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
