@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Linq;
 
 public class Chest : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class Chest : MonoBehaviour
 
     public float MedKitDropChance = 20f;
     public GameObject medKitPrefab;
-    public GameObject clue;
+    public int clueIndex;
     public AudioSource chestOpenSFX;
 
     private void Awake()
@@ -30,6 +32,10 @@ public class Chest : MonoBehaviour
     {
         animator.SetBool(CHEST_OPEN_BOOL, true);
         chestOpenSFX.Play();
+
+        // unlock button in player's clue panel
+        FindObjectOfType<HealthBarSystem>().transform.GetComponentInChildren<CloseAllClues>(true).buttons[clueIndex - 1].SetActive(true);
+
         DrawMedKitChance();
 
         GetComponent<Collider2D>().enabled = false;

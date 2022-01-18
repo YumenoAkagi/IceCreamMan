@@ -5,6 +5,8 @@ using UnityEngine;
 public class CloseAllClues : MonoBehaviour
 {
     public GameObject[] clues;
+    public GameObject[] buttons;
+
     public void CloseAllOpenClues()
     {
         foreach(var clue in clues)
