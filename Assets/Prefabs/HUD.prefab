@@ -2227,6 +2227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c3e37f31311eb4486b8782ac60f200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canOpen: 1
   cluePanel: {fileID: 7320961523865048176}
   closeAllCluesSys: {fileID: 7346162072820802802}
 --- !u!1 &6584342767845481911
@@ -3235,7 +3236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4159319586644611105
 RectTransform:
   m_ObjectHideFlags: 0

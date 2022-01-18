@@ -5528,6 +5528,11 @@ PrefabInstance:
       propertyPath: hotkeyInventory
       value: 
       objectReference: {fileID: 622466941}
+    - target: {fileID: 7052122339658376812, guid: 77d13f851eabdcb4e9d7e3240eb6df16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d13f851eabdcb4e9d7e3240eb6df16, type: 3}
 --- !u!114 &6584342768426981426 stripped
