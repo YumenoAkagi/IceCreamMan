@@ -42,7 +42,7 @@ public class PlayerMeleeCombat : MonoBehaviour
         animator.SetTrigger("melee");
         meleeSFX.Play();
 
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attPoint.position, attRange, enemyLayer);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attPoint.position, attRange);
 
         foreach(Collider2D e in enemies)
         {
