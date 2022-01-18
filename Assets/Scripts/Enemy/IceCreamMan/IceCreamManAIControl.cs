@@ -86,11 +86,6 @@ public class IceCreamManAIControl : MonoBehaviour
         MovementSpeed *= -1;
     }
 
-    public void AttackMeleePlayer()
-    {
-
-    }
-
     public void TakeDamage(float dmg)
     {
         if (!isVulnerable)

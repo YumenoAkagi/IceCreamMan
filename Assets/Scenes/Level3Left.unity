@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -18964,12 +18964,12 @@ PrefabInstance:
     - target: {fileID: 9185476664620786459, guid: c3126e75e9a4f3c48b0943903f215403,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.91
+      value: -59.7
       objectReference: {fileID: 0}
     - target: {fileID: 9185476664620786459, guid: c3126e75e9a4f3c48b0943903f215403,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.15
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 9185476664620786459, guid: c3126e75e9a4f3c48b0943903f215403,
         type: 3}
@@ -44829,6 +44829,11 @@ PrefabInstance:
       objectReference: {fileID: 1412668182}
     - target: {fileID: 2799507113623520700, guid: e24915333160be9459f84ecc465b8183,
         type: 3}
+      propertyPath: userInput2
+      value: 
+      objectReference: {fileID: 1892903287}
+    - target: {fileID: 2799507113623520700, guid: e24915333160be9459f84ecc465b8183,
+        type: 3}
       propertyPath: CorrectPanel
       value: 
       objectReference: {fileID: 1412668181}
@@ -45177,6 +45182,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 807247867}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1892903287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1332099267579954509, guid: bd867e7df6dbef94d8c25ff68d486402,
+    type: 3}
+  m_PrefabInstance: {fileID: 1412668178}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1932000279
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1136,6 +1136,7 @@ GameObject:
   - component: {fileID: 372092276}
   - component: {fileID: 372092277}
   - component: {fileID: 372092275}
+  - component: {fileID: 372092279}
   - component: {fileID: 372092278}
   m_Layer: 12
   m_Name: IceCreamMan
@@ -1183,7 +1184,7 @@ SpriteRenderer:
   m_SortingLayerID: 112647197
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2484334786069665216, guid: 02d65febaf4bb404cab953327d4edb60,
+  m_Sprite: {fileID: 4509234640370864459, guid: b26b83e7dcc21e940bc4b7e2725bb2e2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1308,6 +1309,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &372092279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372092272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc230ca90d47fac4a83c527c4dcf1a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 579017204}
+  meleeRadius: 1
+  damage: 20
 --- !u!1 &408904974
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class DoorLock : MonoBehaviour
             isInteractable = true;
             collision.transform.GetComponent<PlayerMeleeCombat>().canAttack = false;
             collision.transform.GetComponent<PlayerRangedCombat>().DisableShoot();
+            FindObjectOfType<OpenClueSystem>().canOpen = false;
         }
     }
 
@@ -40,6 +41,7 @@ public class DoorLock : MonoBehaviour
             isInteractable = false;
             collision.transform.GetComponent<PlayerMeleeCombat>().canAttack = true;
             collision.transform.GetComponent<PlayerRangedCombat>().EnableShoot();
+            FindObjectOfType<OpenClueSystem>().canOpen = true;
 
         }
     }
