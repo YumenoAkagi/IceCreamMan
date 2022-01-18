@@ -34,7 +34,8 @@ public class Chest : MonoBehaviour
         chestOpenSFX.Play();
 
         // unlock button in player's clue panel
-        FindObjectOfType<HealthBarSystem>().transform.GetComponentInChildren<CloseAllClues>(true).buttons[clueIndex - 1].SetActive(true);
+        if(clueIndex != 0)
+            FindObjectOfType<HealthBarSystem>().transform.GetComponentInChildren<CloseAllClues>(true).buttons[clueIndex - 1].SetActive(true);
 
         DrawMedKitChance();
 

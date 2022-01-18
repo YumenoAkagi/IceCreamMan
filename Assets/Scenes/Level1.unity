@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -16761,6 +16761,11 @@ PrefabInstance:
       objectReference: {fileID: 210767705}
     - target: {fileID: 2799507113623520700, guid: e24915333160be9459f84ecc465b8183,
         type: 3}
+      propertyPath: DoorPassword
+      value: Dark
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799507113623520700, guid: e24915333160be9459f84ecc465b8183,
+        type: 3}
       propertyPath: PasswordPanel
       value: 
       objectReference: {fileID: 210767707}
@@ -25332,6 +25337,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1451249149}
     m_Modifications:
+    - target: {fileID: 904079615864939576, guid: 46340ac21315412498cca2fe27521fba,
+        type: 3}
+      propertyPath: clueIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 904079615864939578, guid: 46340ac21315412498cca2fe27521fba,
         type: 3}
       propertyPath: m_RootOrder

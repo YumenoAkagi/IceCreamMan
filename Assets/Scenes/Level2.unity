@@ -244,6 +244,11 @@ PrefabInstance:
       objectReference: {fileID: 913084159}
     - target: {fileID: 2799507113623520700, guid: e24915333160be9459f84ecc465b8183,
         type: 3}
+      propertyPath: DoorPassword
+      value: Cook
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799507113623520700, guid: e24915333160be9459f84ecc465b8183,
+        type: 3}
       propertyPath: PasswordPanel
       value: 
       objectReference: {fileID: 913084157}
@@ -10908,6 +10913,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2085168678}
     m_Modifications:
+    - target: {fileID: 904079615864939576, guid: 46340ac21315412498cca2fe27521fba,
+        type: 3}
+      propertyPath: clueIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 904079615864939578, guid: 46340ac21315412498cca2fe27521fba,
         type: 3}
       propertyPath: m_RootOrder
@@ -17206,6 +17216,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2085168678}
     m_Modifications:
+    - target: {fileID: 904079615864939576, guid: 46340ac21315412498cca2fe27521fba,
+        type: 3}
+      propertyPath: clueIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 904079615864939578, guid: 46340ac21315412498cca2fe27521fba,
         type: 3}
       propertyPath: m_RootOrder
@@ -19109,6 +19124,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2085168678}
     m_Modifications:
+    - target: {fileID: 904079615864939576, guid: 46340ac21315412498cca2fe27521fba,
+        type: 3}
+      propertyPath: clueIndex
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 904079615864939578, guid: 46340ac21315412498cca2fe27521fba,
         type: 3}
       propertyPath: m_RootOrder
@@ -24009,6 +24029,11 @@ PrefabInstance:
       propertyPath: CorrectPanel
       value: 
       objectReference: {fileID: 1241620718}
+    - target: {fileID: 2799507113623520700, guid: e24915333160be9459f84ecc465b8183,
+        type: 3}
+      propertyPath: DoorPassword
+      value: Fake
+      objectReference: {fileID: 0}
     - target: {fileID: 2799507113623520700, guid: e24915333160be9459f84ecc465b8183,
         type: 3}
       propertyPath: PasswordPanel
