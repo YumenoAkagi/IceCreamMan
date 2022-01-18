@@ -6,6 +6,7 @@ public class PlayerHealthStatus : MonoBehaviour {
     public float currHealth, maxHealth;
     public HealthBarSystem healthBarSystem;
     public Animator hurtAnim;
+    public AudioSource healSFX;
 
     public void TakeDamage(float dmgTaken)
     {
@@ -37,6 +38,8 @@ public class PlayerHealthStatus : MonoBehaviour {
         {
             currHealth = maxHealth;
         }
+
+        healSFX.Play();
 
         healthBarSystem.UpdateHealthBar();
     }

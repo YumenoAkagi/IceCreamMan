@@ -97,6 +97,11 @@ public class IceCreamManAIControl : MonoBehaviour
         if(CurrHealth <= 0f)
         {
             // boss defeated
+            animator.SetBool("isDead", true);
+
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            healthBarCanvas.SetActive(false);
             enabled = false;
         }
     }
