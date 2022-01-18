@@ -11,7 +11,9 @@ public class PasswordCheck : MonoBehaviour
 
     public GameObject Door;
     public string DoorPassword;
-    public InputField UserInput;
+    public string DoorPassword2;
+    public bool doublePassword = false;
+    public InputField UserInput, userInput2;
     public PlayerMeleeCombat meleeCombat;
 
     public GameObject CorrectPanel, IncorrectPanel, PasswordPanel;
@@ -33,8 +35,22 @@ public class PasswordCheck : MonoBehaviour
     {
         if (UserInput.text == DoorPassword)
         {
-            PasswordPanel.SetActive(false);
-            StartCoroutine(Correct());
+            if(doublePassword)
+            {
+                if(userInput2.text == DoorPassword2)
+                {
+                    PasswordPanel.SetActive(false);
+                    StartCoroutine(Correct());
+                } else
+                {
+                    maxTry--;
+                    StartCoroutine(Incorrect());
+                }
+            } else
+            {
+                PasswordPanel.SetActive(false);
+                StartCoroutine(Correct());
+            }
         }
         else
         {
