@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1858,7 +1858,7 @@ PrefabInstance:
     - target: {fileID: 1523150385011407340, guid: 73c8c1ae73b4de446a0a9633b03b71dd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1523150385011407341, guid: 73c8c1ae73b4de446a0a9633b03b71dd,
         type: 3}
@@ -2286,6 +2286,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PasswordCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869286264391455351, guid: bd867e7df6dbef94d8c25ff68d486402,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd867e7df6dbef94d8c25ff68d486402, type: 3}
@@ -19352,7 +19357,7 @@ PrefabInstance:
     - target: {fileID: 6584342767174794148, guid: 77d13f851eabdcb4e9d7e3240eb6df16,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6584342767174794152, guid: 77d13f851eabdcb4e9d7e3240eb6df16,
         type: 3}
@@ -45302,6 +45307,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3869286264391455351, guid: bd867e7df6dbef94d8c25ff68d486402,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd867e7df6dbef94d8c25ff68d486402, type: 3}
 --- !u!224 &1412668179 stripped
@@ -45466,6 +45476,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PasswordCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869286264391455351, guid: bd867e7df6dbef94d8c25ff68d486402,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd867e7df6dbef94d8c25ff68d486402, type: 3}
@@ -45820,6 +45835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PasswordCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869286264391455351, guid: bd867e7df6dbef94d8c25ff68d486402,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd867e7df6dbef94d8c25ff68d486402, type: 3}
@@ -46486,7 +46506,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.48899174, y: -0.007078409}
+  m_Offset: {x: 0.48899174, y: 0.2068839}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -46497,7 +46517,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9779835, y: 0.9858432}
+  m_Size: {x: 1.9779835, y: 0.55791855}
   m_EdgeRadius: 0
 --- !u!1001 &2100326039
 PrefabInstance:
