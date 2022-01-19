@@ -8,7 +8,7 @@ public class EnemyHealthStatus : MonoBehaviour
     public int maxHealth;
     int currHealth;
 
-    public GameObject bulletPrefab, landMinePrefab;
+    public GameObject landMinePrefab;
 
     private void Awake()
     {
@@ -40,10 +40,7 @@ public class EnemyHealthStatus : MonoBehaviour
         float chance = Random.Range(0, 100f);
         if(chance <= 60f)
         {
-            if (bulletPrefab == null)
-                return;
-            // drop bullet
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            FindObjectOfType<PlayerRangedCombat>().AddTotalAmmo(1);
         }
         if(chance <= 15f)
         {
