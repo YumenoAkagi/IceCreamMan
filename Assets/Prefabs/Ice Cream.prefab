@@ -121,7 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSFX: {fileID: 2501318039550067190}
   deadSFX: {fileID: 0}
-  maxHealth: 30
+  maxHealth: 50
+  landMinePrefab: {fileID: 0}
 --- !u!114 &2096317214746298775
 MonoBehaviour:
   m_ObjectHideFlags: 0

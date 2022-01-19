@@ -7,7 +7,6 @@ public class IceCreamManAIControl : MonoBehaviour
 {
     public float MaxHealth = 100f;
     float CurrHealth;
-    public float AttackDamage = 30f;
     public float AttackRange = 10f;
     public float MovementSpeed = 3f;
     public float TriggerRadius = 5f;
