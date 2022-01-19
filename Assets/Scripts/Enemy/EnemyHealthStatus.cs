@@ -38,7 +38,7 @@ public class EnemyHealthStatus : MonoBehaviour
     void DropItem()
     {
         float chance = Random.Range(0, 100f);
-        if(chance <= 30f)
+        if(chance <= 60f)
         {
             if (bulletPrefab == null)
                 return;

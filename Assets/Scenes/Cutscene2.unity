@@ -163,11 +163,17 @@ MonoBehaviour:
     SIGH.....'
   - 'Ice Cream Man:
 
-    It has been such a long time since anyone buy a single Ice
-    Cream'
+    It has been such a long time since anyone bought a single
+    ice cream'
   - 'Ice Cream Man:
 
-    I wish someone could buy some of these delicious Ice Cream'
+    I wish someone would buy some of these delicious ice cream'
+  - 'Ice Cream Man:
+
+    Hmmm?'
+  - 'Ice Cream Man:
+
+    You want to buy this ice cream, little girl?'
 --- !u!4 &150207716
 Transform:
   m_ObjectHideFlags: 0
@@ -247,6 +253,11 @@ PrefabInstance:
     - target: {fileID: 1523150385011407341, guid: 73c8c1ae73b4de446a0a9633b03b71dd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732256447010477405, guid: 73c8c1ae73b4de446a0a9633b03b71dd,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

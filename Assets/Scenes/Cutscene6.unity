@@ -154,13 +154,13 @@ MonoBehaviour:
   Dialogues:
   - 'Detective:
 
-    ITS HIM !'
+    ITS HIM!'
   - 'Detective:
 
-    IT''S EDWARD ! IT''S DEFINITELY HIM '
+    IT''S EDWARD!  IT''S DEFINITELY HIM!'
   - 'Detective:
 
-    IM GONNA GET HIM'
+    Wait for me, Cindy...'
 --- !u!4 &150207716
 Transform:
   m_ObjectHideFlags: 0
@@ -240,6 +240,11 @@ PrefabInstance:
     - target: {fileID: 1523150385011407341, guid: 73c8c1ae73b4de446a0a9633b03b71dd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732256447010477405, guid: 73c8c1ae73b4de446a0a9633b03b71dd,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -154,22 +154,22 @@ MonoBehaviour:
   Dialogues:
   - 'Ice Cream Man:
 
-    Here you go litle girl'
+    Here you go, little girl...'
   - 'Cindy:
 
-    Hmm, Finally I got my favourite strawberry Ice Cream '
+    Hmm, finally I got my favourite strawberry ice cream~!'
   - 'Ice Cream Man:
 
-    Thats not strawberry'
+    Sorry... But, thats not a strawberry ice cream'
   - 'Cindy:
 
     WHAT ?...MISTER ?!'
   - 'Ice Cream Man:
 
-    And you ARE COMING WITH ME'
+    And... you, ARE COMING WITH ME!!!'
   - 'Cindy:
 
-    NOOO DAAAD HEEEELP'
+    NOOO!!! DAAADDDD!!!! HEEEELP!!!!'
 --- !u!4 &150207716
 Transform:
   m_ObjectHideFlags: 0
@@ -249,6 +249,11 @@ PrefabInstance:
     - target: {fileID: 1523150385011407341, guid: 73c8c1ae73b4de446a0a9633b03b71dd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732256447010477405, guid: 73c8c1ae73b4de446a0a9633b03b71dd,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
