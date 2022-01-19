@@ -99,12 +99,16 @@ public class PlayerMovements : MonoBehaviour {
 	private void OnCollisionEnter2D(Collision2D collision)
     {
 		if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Chest")
+        {
 			onGround = true;
+			anim.SetBool("isJump", false);
+		}
     }
 
 	private void Jump() {
 		body.velocity = new Vector2(body.velocity.x, speed * 1.5f);
 		onGround = false;
+		anim.SetBool("isJump", true);
 		jumpSFX.Play();
 	}
 }
