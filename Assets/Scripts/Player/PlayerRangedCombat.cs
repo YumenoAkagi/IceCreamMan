@@ -11,6 +11,7 @@ public class PlayerRangedCombat : MonoBehaviour
     public AmmoSystem ammoSystem;
 
     public AudioSource gunshotSFX, reloadSFX, emptyShotSFX;
+    public Animator anim;
 
     int bulletMag = 5;
     public int magCapacity = 5;
@@ -39,7 +40,7 @@ public class PlayerRangedCombat : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2") && !bulletEmpty)
         {
-            Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+            anim.SetTrigger("ranged");
             bulletMag--;
             gunshotSFX.Play();
         } else if(totalAmmo == 0 && bulletEmpty && Input.GetButtonDown("Fire2")) {
@@ -103,5 +104,10 @@ public class PlayerRangedCombat : MonoBehaviour
     public void DisableShoot()
     {
         canShoot = false;
+    }
+
+    public void shootBullet()
+    {
+        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
     }
 }
