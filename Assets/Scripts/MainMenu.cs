@@ -14,6 +14,12 @@ public class MainMenu : MonoBehaviour
         LoadNextLevel();
     }
 
+    public void StartGameskipIntro()
+    {
+        PlayerPrefs.SetInt(NEW_GAME, 1);
+        StartCoroutine(LoadLevelSkipIntro());
+    }
+
     public void ExitGame()
     {
         Application.Quit();
@@ -31,5 +37,14 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(index);
+    }
+
+    IEnumerator LoadLevelSkipIntro()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene("Level1");
     }
 }
