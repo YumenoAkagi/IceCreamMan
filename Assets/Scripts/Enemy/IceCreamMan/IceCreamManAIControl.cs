@@ -29,6 +29,8 @@ public class IceCreamManAIControl : MonoBehaviour
     bool FacingLeft = false;
     float TimeBeforeNextAttackPattern = 5f;
 
+    int initIcecream = 0;
+
     void Start()
     {
         CurrHealth = MaxHealth;
@@ -92,6 +94,12 @@ public class IceCreamManAIControl : MonoBehaviour
 
         CurrHealth -= dmg;
         bossHealthbarSystem.UpdateHealthBar(Mathf.Clamp(CurrHealth / MaxHealth, 0, 1f));
+
+        if(CurrHealth <= 100f && initIcecream < 2)
+        {
+            Instantiate(iceCreamPrefab, transform.position, Quaternion.identity);
+            initIcecream++;
+        }
 
         if(CurrHealth <= 0f)
         {

@@ -62,6 +62,11 @@ public class SystemOption : MonoBehaviour
         PlayerPrefs.SetFloat(SFXVolumeKey, SFXSlider.value);
     }
 
+    public void SetFullScreenMode(bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
+    }
+
     private void OnApplicationFocus(bool focus)
     {
         if (!focus)
